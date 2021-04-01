@@ -150,10 +150,10 @@ Insert the game cartridge you intend to dump into your device
 ## Dumping a Title's contents
 
 1. Press and hold (Start), and while holding (Start), power on your device. This will launch GodMode9
-1. Navigate to the drive applicable to the type of title you wish to dump the contents of:
+1. Hover over the drive applicable to the type of title you wish to dump the contents of:
   + **User Installed `Title: [A:] SYSNAND SD`
   + **System Title: `[1:] SYSNAND CTRNAND`
-1. Hold (R) and press (A) at the same time to open the directory options
+1. Hold (R) and press (A) at the same time to open the drive options
 1. Select “Open title manager”
 1. Press (A) to continue
 1. Press (A) on the title you wish to dump the romfs/exefs from 
@@ -164,7 +164,7 @@ Insert the game cartridge you intend to dump into your device
 1. Select (A) on "NCCH image options"
 1. Select (A) on "Mount image to drive"
 1. Press (A) to continue
-1. Hover over the `exefs` directory, hold (R) and press (A) to open "directory options"
+1. Hover over the `exefs` directory, hold (R) and press (A) to open the directory options
 1. select "copy to 0:/gm9/out". Do the same with the `romfs` directory
   + The dumped files will be in `/gm9/out`
 
