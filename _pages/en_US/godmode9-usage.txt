@@ -156,8 +156,9 @@ Insert the game cartridge you intend to dump into your device
 1. Hold (R) and press (A) at the same time to open the drive options
 1. Select “open title manager”
 1. Press (A) to continue
-1. Press (A) on the game you wish to dump the romfs/exefs from 
+1. Press (A) on the title you wish to dump the romfs/exefs from 
   + accent letters will be a `?`, like the e in pokemon
+  + Titles will have the title ID before the name
 1. Press (A) on "open title folder"
 1. Then press (A) on the bigest file ending in `.app`(the file size is on the right of each file in gm9)
   + `Byte` is smaller than `kb`, `kb` is smaller than `mb`, `mb` is smaller than `gb`. Example: 1.2 gb is bigger than 1.4 mb and so on
