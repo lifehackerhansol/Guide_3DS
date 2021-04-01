@@ -115,7 +115,7 @@ Insert the game cartridge you intend to dump into your device
 
 <div class="notice--info">{{ notice | markdownify }}</div>
 
-1. Launch GodMode9 by holding (Start) during boot
+1. Press and hold (Start), and while holding (Start), power on your device. This will launch GodMode9
 1. Navigate to `[C:] GAMECART`
 1. Follow the steps applicable to your game cartridge:
   + **3DS Game Cartridge:** Press (A) on `[TitleID].trim.3ds` to select it, then select "NCSD image options...", then select "Build CIA from file"
@@ -125,7 +125,7 @@ Insert the game cartridge you intend to dump into your device
 ## Dumping a Game Cartridges romfs/exefs
 
 1. Insert a game cartrige you wish to dump from
-1. Launch GodMode9 by holding (Start) during boot
+1. Press and hold (Start), and while holding (Start), power on your device. This will launch GodMode9
 1. Hover over "GAMECART ()"
 1. Press (A), wait (could take up to 20 seconds)
 1. Hover over the bigest file ending with `.3ds` and press (A)
@@ -137,7 +137,7 @@ Insert the game cartridge you intend to dump into your device
 
 ## Dumping a Title
 
-1. Launch GodMode9 by holding (Start) during boot
+1. Press and hold (Start), and while holding (Start), power on your device. This will launch GodMode9
 1. Hover over the drive applicable to the type of title you wish to dump:
   + **User Installed Title**: `[A:] SYSNAND SD`
   + **System Title**: `[1:] SYSNAND CTRNAND`
