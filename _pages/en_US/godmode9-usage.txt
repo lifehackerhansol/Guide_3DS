@@ -165,7 +165,7 @@ Insert the game cartridge you intend to dump into your device
 1. Select (A) on "Mount image to drive"
 1. Press (A) to continue
 1. Hover over the `exefs` directory, hold (R) and press (A) to open "directory options"
-1. select "copy to 0:/gm9/out". Do the same with the `romfs.bin` directory
+1. select "copy to 0:/gm9/out". Do the same with the `romfs` directory
   + The dumped files will be in `/gm9/out`
 
 ## Converting a .3DS to .CIA
