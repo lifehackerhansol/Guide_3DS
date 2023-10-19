@@ -28,7 +28,7 @@ title: "BannerBomb3 + Fredtool（仅港台版）"
 
 #### 第二步 – 准备工作
 
-1. Power off your console
+1. 将主机关机
 1. 将你的 SD 卡插入到电脑
 1. 解压 Luma3DS `.zip` 里的 `boot.firm` 和 `boot.3dsx` 到你 SD 卡的根目录
     + 根目录指的是你点进 SD 卡看到的目录，你可以在这个目录下看到 Nintendo 3DS 文件夹，但请不要点进去
@@ -55,7 +55,7 @@ title: "BannerBomb3 + Fredtool（仅港台版）"
     + `<ID1>` is a 32-letter folder inside of the `<ID0>`
     + If you have multiple `<ID1>` folders, follow the instructions [here](troubleshooting#bannerbomb3)
 1. 在 `<ID1>` 文件夹内创建一个名为 `Nintendo DSiWare` 的文件夹
-    + 如果这个位置已经存在了这个文件夹，**且**有一些名为 `<8位ID>.bin` 文件（DSiWare 备份文件）在里面，请将它们备份到电脑上，然后从 SD 卡中移除这些文件
+    + If you already had the folder *and* there are any existing DSiWare backup files (`<8-character-id>.bin`) inside, copy them to your computer and remove them from your SD card
 1. 打开 output_(<你的名字>) `.zip`，然后进入到 `China_Taiwan` -> `output_setup`
 1. 将六个 `.bin` 文件复制到 `Nintendo DSiWare` 文件夹中
 1. Reinsert your SD card into your console
@@ -63,7 +63,7 @@ title: "BannerBomb3 + Fredtool（仅港台版）"
 1. Launch System Settings on your console
 1. 进入至 `資料管理` -> `DSiWare` -> `SD 卡` -> （第二页）
 1. 注意第二页列出的 DSiWare 应用上的标号（在 1 和 6 之间）
-1. Power off your console
+1. 将主机关机
 1. 将你的 SD 卡插入到电脑
 1. 打开内存卡的 `Nintendo 3DS` -> `<ID0>` -> `<ID1>` -> `Nintendo DSiWare` 文件夹
 1. 打开 output_(<你的名字>) `.zip`，然后进入到 `China_Taiwan` -> `output_hax`
@@ -100,21 +100,30 @@ title: "BannerBomb3 + Fredtool（仅港台版）"
 1. 进入到 `資料管理` -> `DSiWare`
 1. 在 “SD 卡” 一栏，选择 “Haxxxxxxxxx!”
 1. 选择 “Copy” ，然后选择 “OK”
+
+#### 第五步 – 触发 Flipnote 漏洞
+
+In this section, you will perform a series of very specific steps within Flipnote Studio that, when performed correctly, will launch b9sTool, the boot9strap (custom firmware) installer.
+
+If you would prefer a visual guide to this section, one is available [here](https://zoogie.github.io/web/flipnote_directions/).
+{: .notice--info}
+
 1. 退出系统设置
 1. Launch Download Play on your console (the orange icon with a 3DS on it)
 1. 选择 “Nintendo DS”
 1. 如果漏洞执行成功，你的主机将进入到日版的“うごくメモ帳（Flipnote Studio）”
+{% include_relative include/exploit-flipnote.txt %}
 
-#### 第五步 – 触发 Flipnote 漏洞
+#### Section VI - Installing boot9strap
 
-{% include_relative include/install-boot9strap-b9stool.txt method="dsdlp" %}
+{% include_relative include/install-boot9strap-b9stool.txt %}
 
-#### 第四部分 — 配置 Luma3DS
+#### Section VII - Luma3DS Configuration
 
 1. Press and hold (Select), and while holding (Select), power on your console
 {% include_relative include/configure-luma3ds.txt %}
 
-#### 第七步 – 还原“DS下载遊戲”程序
+#### Section VIII - Restoring DS Download Play
 
 1. 打开内存卡的 `Nintendo 3DS` -> `<ID0>` -> `<ID1>` -> `Nintendo DSiWare` 文件夹
 1. 下载的 DSiWare 压缩包 （`fredtool.zip`） 里的 `clean` 文件夹复制 `484E4441.bin` 到 `Nintendo DSiWare` 文件夹
@@ -125,8 +134,9 @@ title: "BannerBomb3 + Fredtool（仅港台版）"
 1. 在 “SD 卡” 一栏，选择 “Haxxxxxxxxx!”
 1. 选择 “Copy” ，然后选择 “OK”
 1. 退出系统设置
-1. Power off your console
+1. 将主机关机
 
+{% include_relative include/luma3ds-installed-note.txt %}
 ___
 
 ### 继续至[完成安装](finalizing-setup)

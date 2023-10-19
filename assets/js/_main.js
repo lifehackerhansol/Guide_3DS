@@ -144,8 +144,7 @@ $(document).ready(function() {
     }
   });
 
-  // Custom sidebar, guide-specific
-
+/* hacks-guide change start: add configs for navigation bar and language selector */
   if((window.location.href.indexOf("/he_IL/") > -1) || (window.location.href.indexOf("/ar_SA/") > -1)) {
     $("body").css("direction", "rtl");
 
@@ -177,7 +176,9 @@ $(document).ready(function() {
     $('nav.greedy-nav').prepend('<style>.hidden-links:after{right:inherit !important;}</style>');
     $('nav.greedy-nav').prepend('<style>.hidden-links:after{left:5px !important;}</style>');
   }
+/* hacks-guide change end */
 
+/* hacks-guide change start: add progress table */
   var sidebar_shown = true;
   var sidebar_hidden_pages = ["404", "a9lh-to-b9s", "credits", "donations", "dumping-titles-and-game-cartridges",
                               "f3-(linux)", "f3xswift-(mac)", "faq", "file-extensions-(windows)",
@@ -230,7 +231,10 @@ $(document).ready(function() {
     "installing-boot9strap-(freakyhax)": "27",
     "dumping-eshop-dsiware": "28",
     "installing-boot9strap-(fredtool-inject)": "29",
-    "installing-boot9strap-(kartminer7)": "30"
+    "installing-boot9strap-(kartminer7)": "30",
+    "installing-boot9strap-(petit-compwner)": "31",
+    "installing-boot9strap-(smilehax-iie-jpn)": "32",
+	"installing-boot9strap-(mset9)": "33"
   };
 
   for(var device in devices){
@@ -292,7 +296,10 @@ $(document).ready(function() {
       "27": ["alternate-exploits", "installing-boot9strap-(freakyhax)", "finalizing-setup"],
       "28": ["alternate-exploits", "seedminer-(alternate)", "dumping-eshop-dsiware", "installing-boot9strap-(fredtool-inject)", "finalizing-setup"],
       "29": ["alternate-exploits", "seedminer-(alternate)", "dumping-eshop-dsiware", "installing-boot9strap-(fredtool-inject)", "finalizing-setup"],
-      "30": ["alternate-exploits", "seedminer-(alternate)", "installing-boot9strap-(kartminer7)", "finalizing-setup"]
+      "30": ["alternate-exploits", "seedminer-(alternate)", "installing-boot9strap-(kartminer7)", "finalizing-setup"],
+      "31": ["alternate-exploits", "installing-boot9strap-(petit-compwner)", "finalizing-setup"],
+      "32": ["alternate-exploits", "installing-boot9strap-(smilehax-iie-jpn)", "finalizing-setup"],
+	  "33": ["installing-boot9strap-(mset9)", "finalizing-setup"]
     }
     // Can add custom routing if necessary but currently both routes are identical
     var device_old =  Object.assign({}, device_common,{
@@ -333,4 +340,5 @@ $(document).ready(function() {
       }
     }
   }
+/* hacks-guide change end */
 });

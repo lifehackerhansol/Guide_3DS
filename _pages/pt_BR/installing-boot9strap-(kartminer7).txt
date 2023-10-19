@@ -52,7 +52,7 @@ Nesta seção, você fará com que o 3DS gere alguns dados no Mario Kart 7 que s
     + A raiz do cartão SD refere-se ao diretório inicial no seu cartão SD onde você pode ver a pasta Nintendo 3DS, mas não está dentro dela
 1. Crie uma pasta chamada `boot9strap` na raiz do seu cartão SD
 1. Copie o `boot9strap.firm` e o `boot9strap.firm.sha` do `.zip` do boot9strap para a pasta `/boot9strap/` no seu cartão SD
-1. Copie `SafeB9SInstaller.bin` para a raiz do seu cartão SD
+1. Copie `SafeB9SInstaller.bin` do `.zip` do SafeB9SInstaller para a raiz do seu cartão SD
 1. Crie uma pasta chamada `3ds` na raiz do seu cartão SD se ela ainda não existir
     + Esta pasta armazena aplicativos homebrew e dados; é diferente da pasta `Nintendo 3DS` que o console gera automaticamente
 1. Copie a pasta `nimdsphax` do nimdsphax `.zip` para a pasta `/3ds/` no seu cartão SD
@@ -87,7 +87,7 @@ Nesta seção, você fará com que o 3DS gere alguns dados no Mario Kart 7 que s
 1. Toque no botão "Mario Kart Channel" na parte inferior
 1. Toque no botão "StreetPass List" na parte inferior da tela, no meio
 1. Aperte (A) várias vezes
-    + You should eventually see the "Start Race?" prompt, then the colours on the bottom screen should change from red, to blue, to white
+    + Você deve ver eventualmente o prompt "Start Race?", então as cores na parte inferior da tela devem mudar de vermelho, para azul, para branco
     + Se você ver as telas vermelho/azul/branco mas o 3DS ter um crash, reinicie e tente novamente
     + Se você não vê QUAISQUER cores, mude o idioma do seu sistema (se possível), então tente o exploit novamente
 1. Se o exploit foi bem sucedido, o **3DS de destino** terá sido inicializado no 3DS ROP xPloit Injector
@@ -101,8 +101,6 @@ Nesta seção, você fará com que o 3DS gere alguns dados no Mario Kart 7 que s
 {% include_relative include/install-boot9strap-safeb9sinstaller.txt %}
 {%- include_relative include/configure-luma3ds.txt %}
 
-{% include_relative include/luma3ds-installed-note.txt %}
-
 #### Seção VII - Removendo menuhax67
 
 Nesta seção, você usará o Homebrew Launcher para remover o menuhax67, que permitirá que você acesse a opção Configurações do Menu HOME normalmente.
@@ -112,10 +110,11 @@ Nesta seção, você usará o Homebrew Launcher para remover o menuhax67, que pe
 1. Selecione REMOVE menuhax67
 1. Quando você ver "done.", aperte (A), depois aperte (A) em "EXIT to menu"
 
-At this point, you can re-enable wireless communications.
+A partir daqui, você pode reativar a comunicação sem fio.
 {: .notice-info}
 
+{% include_relative include/luma3ds-installed-note.txt %}
 ___
 
-Continue em [Finalizando a instalação](finalizing-setup)
+### Continue para [Finalizando a instalação](finalizing-setup)
 {: .notice-primary}

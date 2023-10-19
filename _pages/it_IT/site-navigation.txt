@@ -8,7 +8,8 @@ sitemap: false
 
 + [Completamento dell'installazione](finalizing-setup)
 + [Installazione di boot9strap (Soundhax)](installing-boot9strap-(soundhax))
-+ [Seedminer](seedminer)
++ [Installazione di boot9strap (super-skaterhax)](installing-boot9strap-(super-skaterhax))
++ [Installazione di boot9strap (MSET9)](installing-boot9strap-(mset9))
 
 {% endcapture %}
 <div class="notice--info">{{ notice-1 | markdownify }}</div>
@@ -49,11 +50,14 @@ sitemap: false
 + [Installazione di boot9strap (kartdlphax)](installing-boot9strap-(kartdlphax))
 + [Installazione di boot9strap (Kartminer7)](installing-boot9strap-(kartminer7))
 + [Installazione di boot9strap (menuhax)](installing-boot9strap-(menuhax))
++ [Installazione di boot9strap (MSET9)](installing-boot9strap-(mset9))
 + [Installazione di boot9strap (ninjhax2-dx)](installing-boot9strap-(ninjhax2-dx))
 + [Installazione di boot9strap (ntrboot)](installing-boot9strap-(ntrboot))
++ [Installazione di boot9strap (petit-compwner)](installing-boot9strap-(petit-compwner))
 + [Installazione di boot9strap (PicHaxx)](installing-boot9strap-(pichaxx))
 + [Installazione di boot9strap (safecerthax)](installing-boot9strap-(safecerthax))
 + [Installazione di boot9strap (smilehax-IIe)](installing-boot9strap-(smilehax-iie))
++ [Installazione di boot9strap (smilehax-IIe-jpn)](installing-boot9strap-(smilehax-iie-jpn))
 + [Installazione di boot9strap (Soundhax)](installing-boot9strap-(soundhax))
 + [Installazione di boot9strap (Steelhax)](installing-boot9strap-(steelhax))
 + [Installazione di boot9strap (SSLoth-Browser)](installing-boot9strap-(ssloth-browser))

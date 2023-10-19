@@ -23,7 +23,7 @@ This exploit will not work on the New 3DS, New 3DS XL, or New 2DS XL. Please ens
 
 * 最新版本的 [SafeB9SInstaller](https://github.com/d0k3/SafeB9SInstaller/releases/download/v0.0.7/SafeB9SInstaller-20170605-122940.zip)（直链）
 * 最新版本的 [boot9strap](https://github.com/SciresM/boot9strap/releases/download/1.4/boot9strap-1.4.zip)（直链）
-* The latest release of [Luma3DS](https://github.com/LumaTeam/Luma3DS/releases/latest) (the Luma3DS .zip file)
+* 最新版本的 [Luma3DS](https://github.com/LumaTeam/Luma3DS/releases/latest)（下载 Luma3DS `.zip` 文件）
 
 ### 操作步骤
 
@@ -34,9 +34,9 @@ In this section, you will see whether your shoulder buttons are working on your 
 1. Power on your console
 1. Once you see the HOME Menu, press the (Left Shoulder) and (Right Shoulder) buttons at the same time
     + The camera applet should appear
-1. Power off your console
+1. 将主机关机
 
-If the camera did NOT appear, you cannot follow this method. If this is the case, stay on your current firmware and ask [Nintendo Homebrew on Discord](https://discord.gg/MWxPgEp) for help.
+If the camera did NOT appear, you cannot follow this method. If this is the case, use [Installing boot9strap (MSET9)](installing-boot9strap-(mset9)) instead.
 {: .notice--warning}
 
 #### 第二步 – 准备工作
@@ -57,7 +57,7 @@ In this section, you will copy the files needed to trigger the safecerthax explo
 In this section, you will change your Internet connection settings to use a proxy network designed to exploit the System Update feature of your console.
 
 {% include_relative include/addproxy.txt %}
-1. Power off your console
+1. 将主机关机
 
 #### Section IV - safecerthax
 

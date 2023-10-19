@@ -34,7 +34,7 @@ SSLoth 允许目前系统版本在 11.13.0 及其以下的主机绕过浏览器�
 
 本节中，你将会复制一些触发 browserhax 和 universal-otherapp 所需要的文件。
 
-1. Power off your console
+1. 将主机关机
 1. 将你的 SD 卡插入到电脑
 1. 复制 `otherapp.bin` 到你 SD 卡的根目录下，然后重命名为 `arm11code.bin`
     + 根目录指的是你点进 SD 卡看到的目录，你可以在这个目录下看到 Nintendo 3DS 文件夹，但请不要点进去
@@ -71,12 +71,11 @@ SSLoth 允许目前系统版本在 11.13.0 及其以下的主机绕过浏览器�
 {% include_relative include/install-boot9strap-safeb9sinstaller.txt %}
 {%- include_relative include/configure-luma3ds.txt %}
 
-{% include_relative include/luma3ds-installed-note.txt %}
-
 #### 第五步 – 还原默认的 DNS
 
 {% include_relative include/rmproxy.txt %}
 
+{% include_relative include/luma3ds-installed-note.txt %}
 ___
 
 ### 继续至[完成安装](finalizing-setup)

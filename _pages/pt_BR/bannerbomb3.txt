@@ -27,7 +27,7 @@ Se você tiver um console tailandês (indicado por um T após a versão do siste
 ### O que você precisa
 
 * Seu arquivo `movable.sed` de completar Seedminer
-* The latest release of [BannerBomb3](https://github.com/zoogie/Bannerbomb3/releases/download/v3.0/Release_v3.0.zip) (`Release_v3.0.zip`, direct download)
+* A versão mais recente do [BannerBomb3](https://github.com/zoogie/Bannerbomb3/releases/download/v3.0/Release_v3.0.zip) (`Release_v3.0.zip`, download direto)
 
 #### Seção I - Preparação
 
@@ -50,7 +50,7 @@ Nesta seção, você irá copiar os arquivos necessários para acionar o exploit
     + Se você tiver múltiplas pastas `<ID1>, siga as instruções [aqui](troubleshooting#bannerbomb3)
     ![]({{ "/images/screenshots/bb3/dsiware-location-1.png" | absolute_url }}){: .notice--info}
 1. Crie uma pasta chamada `Nintendo DSiWare` dentro do `<ID1>`
-    + Se você já teve a pasta *e* já existe algum arquivo de backup de DSiWare existente (`<id-de-8-caracteres>. dentro) dentro, copie-os para seu PC e remova-os do seu cartão SD
+    + Se você já teve a pasta *e* existem algum arquivo de backup de DSiWare existente (`<8-character-id>.bin) dentro desta pasta, copie-os para o seu computador e remova-os do seu cartão SD
 1. Copie o arquivo `F00D43D5.bin` do `BannerBomb3.zip` para a pasta `Nintendo DSiWare`
 
 ![]({{ "/images/screenshots/bb3/dsiware-location-2.png" | absolute_url }})
@@ -60,6 +60,7 @@ Nesta seção, você irá copiar os arquivos necessários para acionar o exploit
 
 Nesta seção, você irá acionar o exploit BannerBomb3 usando o menu de Gerenciamento de DSiWare e usá-lo para instalar o exploit menuhax67.
 
+1. Reinsira o cartão SD no seu console 
 1. Ligue o seu console
 1. Abra as Configurações do Sistema no seu console
 1. Navegue para `Gerenciamento de dados` -> `DSiWare` -> `Cartão SD` ([imagem](/images/screenshots/bb3/dsiware-management.png))

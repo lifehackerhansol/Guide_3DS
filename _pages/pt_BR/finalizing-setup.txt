@@ -47,14 +47,14 @@ Nesta seção, você copiará os arquivos necessários para seguir o resto das i
 1. Insira o cartão SD no seu computador
 1. Copie o conteúdo do `finalizing.zip` (`finalize`, `gm9`, e `luma`) para a raiz do seu cartão SD, mesclando/substituindo quaisquer pastas existentes, se solicitado
     + Se você estiver usando um Mac, segure a tecla Option enquanto arrasta as pastas para a raiz do seu cartão SD, então clique em "Merge"
-1. Insert your SD card into your console
+1. Reinsira o cartão SD no seu console
 
 As capturas de tela abaixo indicam o layout mínimo do cartão SD que é necessário para seguir esta página. Você pode ter arquivos ou pastas extras no seu cartão SD, dependendo da sua instalação anterior ou do método que você seguiu.
 
 ![]({{ "/images/screenshots/finalizing-root-layout.png" | absolute_url }})
 {: .notice--info}
 
-#### Section II - CFW Check
+#### Seção II - Verificação de CFW
 
 Como uma medida de segurança adicional, realizaremos uma verificação adicional de custom firmware. Se custom firmware não foi instalado até este ponto por alguma razão, a próxima seção pode tornar seu console incapaz de ser hackeado sem hardware externo.
 
@@ -69,7 +69,7 @@ Se você NÃO inicializar no menu de configuração do Luma3DS, custom firmware 
 {: .notice--danger}
 
 
-#### Section III - Updating the System
+#### Seção III - Atualizando o Sistema
 
 Nesta seção, você atualizará seu sistema para a versão mais recente, que é seguro de fazer com custom firmware.
 

@@ -55,7 +55,7 @@ These instructions are for Taiwanese consoles ONLY (as indicated by a T at the e
     + `<ID1>` is a 32-letter folder inside of the `<ID0>`
     + If you have multiple `<ID1>` folders, follow the instructions [here](troubleshooting#bannerbomb3)
 1. Create a folder named `Nintendo DSiWare` inside of the `<ID1>`
-    + If you already had the folder *and* there are any existing DSiWare backup files (`<8-character-id>.bin`) inside, copy them to your PC and remove them from your SD card
+    + If you already had the folder *and* there are any existing DSiWare backup files (`<8-character-id>.bin`) inside, copy them to your computer and remove them from your SD card
 1. Open the output_(name) `.zip` file and navigate to `China_Taiwan` -> `output_setup`
 1. Copy all six `.bin` files to the `Nintendo DSiWare` folder
 1. Reinsert your SD card into your console
@@ -100,21 +100,30 @@ These instructions are for Taiwanese consoles ONLY (as indicated by a T at the e
 1. 移動至 `檔案管理 (Data Management)` -> `DSiWare`
 1. 在 SD 卡欄位中選擇『Haxxxxxxxxx!』程式
 1. 選擇『複製 (Copy)』並選擇『OK』
+
+##### 第五節 — Flipnote 漏洞
+
+In this section, you will perform a series of very specific steps within Flipnote Studio that, when performed correctly, will launch b9sTool, the boot9strap (custom firmware) installer.
+
+If you would prefer a visual guide to this section, one is available [here](https://zoogie.github.io/web/flipnote_directions/).
+{: .notice--info}
+
 1. 退出系統設定
 1. Launch Download Play on your console (the orange icon with a 3DS on it)
 1. 選擇『任天堂 DS (Nintendo DS)』
 1. 如果漏洞成功執行，您的 3DS 將自動啟動『うごくメモ帳 (Flipnote Studio)』
+{% include_relative include/exploit-flipnote.txt %}
 
-##### 第五節 — Flipnote 漏洞
+#### Section VI - Installing boot9strap
 
-{% include_relative include/install-boot9strap-b9stool.txt method="dsdlp" %}
+{% include_relative include/install-boot9strap-b9stool.txt %}
 
-#### Section VI - Luma3DS Configuration
+#### Section VII - Luma3DS Configuration
 
 1. Press and hold (Select), and while holding (Select), power on your console
 {% include_relative include/configure-luma3ds.txt %}
 
-##### 第七節 — 還原『下載通信(Download Play)』程式
+#### Section VIII - Restoring DS Download Play
 
 1. 於您的 SD 卡中，移動至 `Nintendo 3DS` -> `<ID0>` -> `<ID1>` -> `Nintendo DSiWare`
 1. Copy the `484E4441.bin`  file from the `clean` folder of the downloaded DSiWare archive (output_(name).zip) to the `Nintendo DSiWare` folder
@@ -127,6 +136,7 @@ These instructions are for Taiwanese consoles ONLY (as indicated by a T at the e
 1. 退出系統設定
 1. Power off your console
 
+{% include_relative include/luma3ds-installed-note.txt %}
 ___
 
 ### 繼續至[完成安裝](finalizing-setup)

@@ -18,6 +18,7 @@ title: "문제 해결"
 * [boot9strap 설치 (Soundhax)](#installing-boot9strap-soundhax)
 * [boot9strap 설치 (SSLoth-Browser)](#installing-boot9strap-ssloth-browser)
 * [boot9strap 설치 (super-skaterhax)](#installing-boot9strap-super-skaterhax)
+* [Installing boot9strap (MSET9)](#installing-boot9strap-mset9)
 
 * [마무리 단계](#finalizing-setup)
 
@@ -31,7 +32,7 @@ title: "문제 해결"
 
 ## SafeB9SInstaller와의 문제
 
-### Before opening SafeB9SInstaller
+### SafeB9SInstaller 실행 전
 
 {% capture compat %}
 <summary><u>Failed to open SafeB9SInstaller.bin</u></summary>
@@ -45,7 +46,7 @@ title: "문제 해결"
 {% capture compat %}
 <summary><u>MicroSD Card - init failed</u></summary>
 
-Your SD card is most likely acting weird. Try reformatting your SD card ([Windows](formatting-sd-(windows)), [macOS](formatting-sd-(mac)), [Linux](formatting-sd-(linux))). If this doesn't work, try another SD card.
+SD 카드에 이상이 있을 가능성이 높습니다. 다시 포맷해 보세요 ([Windows](formatting-sd-(windows)), [macOS](formatting-sd-(mac)), [Linux](formatting-sd-(linux))). 이렇게까지 했는데도 효과가 없으면, 다른 SD 카드로 시도해보세요.
 
 {% endcapture %}
 <details>{{ compat | markdownify }}</details>
@@ -122,7 +123,7 @@ Your SD card is most likely acting weird. Try reformatting your SD card ([Window
 
 웹사이트에서 `movable.sed` 파일을 해킹할 수 없다고 확정했습니다. 정확한 ID0를 제공했는지 확인해주세요. 만약 ID0가 정확하다면, Seedminer를 통한 방법은 불가능하며 다른 방법을 이용해야 합니다.
 
-If you have a New 3DS / New 3DS XL / New 2DS XL (as indicated by the four shoulder buttons on the back and the C-Stick on the right), you can follow [Installing boot9strap (super-skaterhax)](installing-boot9strap-(super-skaterhax)). 그 외에는 추가 하드웨어가 필요한 방법을 시도해야 할 수 있습니다.
+New 3DS users can follow [Installing boot9strap (super-skaterhax)](installing-boot9strap-(super-skaterhax)), while Old 3DS users can follow [Installing boot9strap (MSET9)](installing-boot9strap-(mset9)). If you cannot do MSET9 for any reason, you will need to follow a method that requires additional games or hardware.
 
 {% endcapture %}
 <details>{{ compat | markdownify }}</details>
@@ -143,7 +144,7 @@ To fix this, you will need to determine which folder contains your data. 이것�
 
 {% capture compat %}
 <summary><u>DSiWare 관리 메뉴가 BB3 multihax 메뉴를 표시하지 않고 깨짐</u></summary>
-`F00D43D5.bin`이 `Nintendo 3DS` -> `<ID0>` -> `<ID1>` -> `Nintendo DSiWare` 폴더 내에 있는 유일한 파일이어야 합니다. If it is, then re-create it with the [Bannerbomb3 Injector](https://zoogie.github.io/web/bb3).
+`F00D43D5.bin`이 `Nintendo 3DS` -> `<ID0>` -> `<ID1>` -> `Nintendo DSiWare` 폴더 내에 있는 유일한 파일이어야 합니다. 만약 그렇다면, [BannerBomb3 툴](https://zoogie.github.io/web/bb3)에서 다시 생성해 주세요.
 
 또한, `bb3.bin`이 SD 카드의 최상위 디렉토리에 있어야 합니다. If it is missing, then download the latest release of [Bannerbomb3](https://github.com/zoogie/Bannerbomb3/releases/download/v3.0/Release_v3.0.zip) (direct download), and copy the `bb3.bin` file from the Release `.zip` to the root of your SD card.
 
@@ -161,7 +162,7 @@ To fix this, you will need to determine which folder contains your data. 이것�
 {% capture compat %}
 <summary><u>DSiWare 관리 메뉴에서 물음표가 표시됩니다</u></summary>
 
-`F00D43D5.bin` 파일에 문제가 있습니다. (잘못된 파일이거나 다른 3DS용 파일) Re-create your `F00D43D5.bin` file with the [Bannerbomb3 Injector](https://zoogie.github.io/web/bb3), ensuring that you use the `movable.sed` file for your console.
+`F00D43D5.bin` 파일에 문제가 있습니다. (잘못된 파일이거나 다른 3DS용 파일) 해당 콘솔의 `movable.sed` 파일을 이용해, [BannerBomb3 툴](https://zoogie.github.io/web/bb3)에서 `F00D43D5.bin` 파일을 다시 생성해 주세요.
 {% endcapture %}
 <details>{{ compat | markdownify }}</details>
 
@@ -328,7 +329,7 @@ You can also try resetting your browser save data:
 {% capture compat %}
 <summary><u>Browserhax QR 코드나 URL을 열면 브라우저가 꺼집니다</u></summary>
 
-이러한 브라우저 기반의 익스플로잇은 불안정하고 자주 종료됩니다. 그러나 종종 다음 단계를 수행하면 고쳐질 수 있습니다.
+이러한 브라우저 기반의 취약점은 불안정하고 자주 종료됩니다. 그러나 종종 다음 단계를 수행하면 고쳐질 수 있습니다.
 
 1. 브라우저를 실행하고 브라우저 설정을 실행해 주세요
 1. Scroll to the bottom and select "Reset Save Data" (it may also be called "Initialize Save Data" or "Clear All Save Data")
@@ -400,16 +401,16 @@ SSLoth 프록시 설정이 잘못 설정되었습니다. 페이지의 SSLoth 섹
 1. Tap Up/Down Arrows to set the correct Day, Month and Year.
 1. Select OK to confirm.
 
-If the problem persists:
+문제가 지속될 경우:
 
 + Ensure that `arm11code.bin`, `browserhax_hblauncher_ropbin_payload.bin`, and `boot.3dsx` are on the root of the SD card (not inside of any folder)
-+ Ensure that you selected the correct payload for your region AND system version
-+ Ensure that your region settings look [like this](/images/screenshots/skater_lang.png)
-+ Try resetting your browser data:
++ 올바른 지역과 시스템 버전을 선택했는지 다시 확인해 보세요
++ 지역 설정이 제대로 되어 있는지 확인해 주세요 [참고 이미지](/images/screenshots/skater_lang.png)
++ 브라우저 데이터 삭제를 시도해 보세요:
     1. 브라우저를 실행하고 브라우저 설정을 실행해 주세요
     1. Scroll to the bottom and select "Reset Save Data" (it may also be called "Initilize Save Data" or "Clear All Save Data")
     1. 익스플로잇을 다시 시도해 주세요
-+ Try changing the system language to something other than the current language
++ 시스템 언어를 현재 언어가 아닌 다른 언어로 변경해 보세요
 
 {% endcapture %}
 <details>{{ compat | markdownify }}</details>
@@ -428,9 +429,154 @@ If the problem persists:
 
 
 {% capture compat %}
-<summary><u>An exception occured or "DLL_HEAP_INFORMATION" when pressing GO! </u></summary>
+<summary><u>"GO! GO!" 선택 시 "An exception occurred" 또는 오류 화면이 표시됩니다 </u></summary>
 
 이미 커스텀 펌웨어가 설치되어 있을 수 있습니다. [CFW 확인](checking-for-cfw) 을 하는 것을 권장합니다.
+
+{% endcapture %}
+<details>{{ compat | markdownify }}</details>
+
+## Installing boot9strap (MSET9)
+
+{% capture compat %}
+<summary><u>assert(id0_count == 1) AssertionError</u></summary>
+
+You have multiple ID0 folders. To determine the correct folder, follow these instructions:
+
+1. `Nintendo 3DS` 폴더를 `BACKUP_Nintendo 3DS` 폴더로 이름을 변경해 주세요
+1. SD 카드를 콘솔에 다시 삽입해 주세요
+1. 콘솔의 전원을 켜 주세요
+1. 콘솔이 SD 카드 데이터를 생성할 때까지 기다려 주세요
+    + 당신의 앱들이 사라졌을 것입니다. 이는 정상이며, 잠시 후에 고쳐질 것입니다.
+1. 콘솔의 전원을 꺼 주세요
+1. SD 카드를 컴퓨터에 삽입해 주세요
+1. SD 카드의 `Nintendo 3DS` 폴더를 열어 주세요
+1. Write down the first few characters of the folder you see
+    + This is your true ID0, which we will keep in the real Nintendo 3DS folder
+1. Delete the ID0 from the current `Nintendo 3DS` folder
+1. Move the true ID0 folder from the `BACKUP_Nintendo 3DS` folder to the `Nintendo 3DS` folder
+1. If it exists, move the `Private` folder from the `BACKUP_Nintendo 3DS` folder to the `Nintendo 3DS` folder
+
+Once you've done this, continue from [Section I Step 7](installing-boot9strap-(mset9)#section-i---prep-work).
+
+{% endcapture %}
+<details>{{ compat | markdownify }}</details>
+
+{% capture compat %}
+<summary><u>(title/import).db does not exist, create them now?" / invalid database</u></summary>
+
+Full error messages:
+* "Nintendo 3DS/\<ID0>/\<ID1>/dbs/\<import.db and/or title.db> does not exist on SD card! Create them now? (type yes/no)"
+* "Invalid database"
+
+This happens when no valid title database is present, usually because you never installed any titles from eShop on this SD card.
+
+1. Type "yes", then press Enter
+1. Insert the SD card into your console
+1. 콘솔의 전원을 켜 주세요
+1. Navigate to System Settings -> Data Management -> Nintendo 3DS -> Software -> Reset ([visual instructions](/images/screenshots/database-reset.jpg))
+1. 콘솔의 전원을 꺼 주세요
+1. Insert the SD card into your computer
+1. Return to [Section I Step 7](installing-boot9strap-(mset9)#section-i---prep-work)
+
+{% endcapture %}
+<details>{{ compat | markdownify }}</details>
+
+{% capture compat %}
+<summary><u>[WinError 5] Access is denied</u></summary>
+
+The SD card may be write-locked. If you are using a full-size SD card, ensure that the lock is flipped in the [upright position](/images/sdlock.png). Otherwise, try ejecting and reinserting your SD card.
+
+{% endcapture %}
+<details>{{ compat | markdownify }}</details>
+
+
+{% capture compat %}
+<summary><u>UnboundLocalError: cannot access local variable 'haxid1_path'</u></summary>
+
+This can happen when Option 1 stopped because of an error and there is an incomplete installation.
+
+1. Close the script window
+1. Execute the `mset9.py` script on the root of the SD card
+    + **Windows**: Double-click `mset9.bat`
+        +If this doesn't work: hold SHIFT and right-click anywhere in the SD card window, then click the option that opens Terminal, PowerShell, or Command Prompt, then type `py -3 mset9.py` and press Enter
+    + **Linux**: open a Terminal window, `cd` to the root of your SD card, then type `python3 mset9.py` and press Enter
+    + You should see a window that says "MSET9 ... SETUP by zoogie"
+1. Type the number corresponding to your console model and version, then press Enter
+1. Type `4`, then press Enter to remove MSET9
+1. Return to the [beginning of Section I](installing-boot9strap-(mset9)#section-i---prep-work)
+
+{% endcapture %}
+<details>{{ compat | markdownify }}</details>
+
+{% capture compat %}
+<summary><u>Red screen after reinserting SD card (Section II Step 11)</u></summary>
+
+You may be missing `SafeB9S.bin` from the root of your SD card, or the file may be corrupted. Copy it from the `SDMC` folder in the MSET9 `.zip`, replacing any existing files.
+
+Alternatively, your SD card may be improperly formatted or partitioned. Try reformatting your SD card: [Windows](formatting-sd-(windows)), [Linux](formatting-sd-(linux)) *(this will wipe your SD card data)*
+
+{% endcapture %}
+<details>{{ compat | markdownify }}</details>
+
+{% capture compat %}
+<summary><u>assert(mii_ok==1) AssertionError</u></summary>
+
+Your SD card does not have Mii Maker Data, which is necessary for this exploit to run.
+
+1. Close the script window
+1. Execute the `mset9.py` script on the root of the SD card
+    + **Windows**: Double-click `mset9.bat`
+        + If this doesn't work: hold SHIFT and right-click anywhere in the SD card window, then click the option that opens Terminal, PowerShell, or Command Prompt, then type `py -3 mset9.py` and press Enter
+    + **Linux**: open a Terminal window, `cd` to the root of your SD card, then type `python3 mset9.py` and press Enter
+    + You should see a window that says "MSET9 ... SETUP by zoogie"
+1. Type the number corresponding to your console model and version, then press Enter
+1. Type `4`, then press Enter to remove MSET9
+1. Insert the SD card into your console
+1. 콘솔의 전원을 켜 주세요
+1. Launch Mii Maker
+1. Wait for your console to reach the "Welcome to Mii Maker" screen, then exit Mii Maker
+1. 콘솔의 전원을 꺼 주세요
+1. Insert the SD card into your computer
+1. Return to [Section I Step 7](installing-boot9strap-(mset9)#section-i---prep-work)
+
+{% endcapture %}
+<details>{{ compat | markdownify }}</details>
+
+{% capture compat %}
+<summary><u>System Settings loading infinitely after reinserting the SD card</u></summary>
+
+You most likely did something different from the MSET9 instructions, or selected the wrong model or version.
+
+1. Close the script window
+1. Execute the `mset9.py` script on the root of the SD card
+    + **Windows**: Double-click `mset9.bat`
+        + If this doesn't work: hold SHIFT and right-click anywhere in the SD card window, then click the option that opens Terminal, PowerShell, or Command Prompt, then type `py -3 mset9.py` and press Enter
+    + **Linux**: open a Terminal window, `cd` to the root of your SD card, then type `python3 mset9.py` and press Enter
+    + You should see a window that says "MSET9 ... SETUP by zoogie"
+1. Type the number corresponding to your console model and version, then press Enter
+1. Type `3`, then press Enter
+1. Once the window says "Deleting... done.", insert the SD card into your console
+1. 콘솔의 전원을 켜 주세요
+1. Return to [Section II Step 1](installing-boot9strap-(mset9)#section-ii---mset9)
+
+If you continue to have this issue and are sure that you did everything correctly, it's possible that there's something wrong with your Mii Maker extdata. Follow these instructions to reset it:
+
+1. Close the script window
+1. Execute the `mset9.py` script on the root of the SD card
+    + **Windows**: Double-click `mset9.bat`
+        + If this doesn't work: hold SHIFT and right-click anywhere in the SD card window, then click the option that opens Terminal, PowerShell, or Command Prompt, then type `py -3 mset9.py` and press Enter
+    + **Linux**: open a Terminal window, `cd` to the root of your SD card, then type `python3 mset9.py` and press Enter
+    + You should see a window that says "MSET9 ... SETUP by zoogie"
+1. Type the number corresponding to your console model and version, then press Enter
+1. Type `4`, then press Enter to remove MSET9
+1. Insert the SD card into your console
+1. 콘솔의 전원을 켜 주세요
+1. Launch Mii Maker
+1. Wait for your console to reach the "Welcome to Mii Maker" screen, then exit Mii Maker
+1. 콘솔의 전원을 꺼 주세요
+1. Insert the SD card into your computer
+1. Return to [Section I Step 7](installing-boot9strap-(mset9)#section-i---prep-work)
 
 {% endcapture %}
 <details>{{ compat | markdownify }}</details>
@@ -455,17 +601,9 @@ If the problem persists:
 <details>{{ compat | markdownify }}</details>
 
 {% capture compat %}
-<summary><u>Warning #01: No Nintendo 3DS folder</u></summary>
-
-Your SD card does not have the `Nintendo 3DS` folder. Power on your device with your SD card inserted, then wait for the device to show a message box that says "Creating HOME Menu management information". Once the message box disappears, power off your device and try again.
-
-{% endcapture %}
-<details>{{ compat | markdownify }}</details>
-
-{% capture compat %}
 <summary><u>Error #02: Missing essential.exefs</u></summary>
 
-You said 'No' to the "Make essential files backup?" prompt in GodMode9. Power off your device, power it on while holding (Start) to re-enter GodMode9, say 'Yes' to the prompt, then try again.
+You said 'No' to the "Make essential files backup?" prompt in GodMode9. Power off your console, power it on while holding (Start) to re-enter GodMode9, say 'Yes' to the prompt, then try again.
 
 {% endcapture %}
 <details>{{ compat | markdownify }}</details>
@@ -489,15 +627,14 @@ You did not copy everything from `finalize.zip` to the root of your SD card. Rem
 You need at least 1.3GB of free space to perform the NAND backup, which is a part of the script. 빈 공간이 부족하다면 다음 단계를 따르세요.
 
 1. 콘솔의 전원을 꺼 주세요
-1. SD 카드를 분리해 컴퓨터에 장착해주세요
+1. SD 카드를 컴퓨터에 삽입해 주세요
 1. SD 카드의 루트에 있는 `Nintendo 3DS` 폴더를 컴퓨터에 복사해주세요
 1. SD 카드에서 `Nintendo 3DS` 폴더를 지워주세요
 1. SD 카드를 콘솔에 다시 삽입해 주세요
-1. 콘솔의 전원을 꺼 주세요
-1. Hold START and power on still holding START to open GodMode9
-1. Press the (Home) button
+1. (Start) 를 길게 누르고, 이 상태에서 콘솔의 전원을 켜 주세요. GodMode9이 실행될 겁니다
+1. HOME 버튼을 눌러 주세요.
 1. "Scripts..."를 선택해 주세요
-1. Select "finalize"
+1. "finalize"를 선택해 주세요
 1. Press (A) to create a NAND backup
     + This may take around fifteen minutes
 1. Press (A) again
@@ -511,11 +648,12 @@ You need at least 1.3GB of free space to perform the NAND backup, which is a par
 Now that you have your NAND backup in a safe place:
 
 1. SD 카드를 콘솔에 다시 삽입해 주세요
-1. Hold START and power on still holding START to open GodMode9
-1. Press the (Home) button
+1. (Start) 를 길게 누르고, 이 상태에서 콘솔의 전원을 켜 주세요. GodMode9이 실행될 겁니다
+1. HOME 버튼을 눌러 주세요.
 1. "Scripts..."를 선택해 주세요
-1. Select "finalize"
+1. "finalize"를 선택해 주세요
 1. Continue the script as normal
+    + The NAND backup will be automatically skipped
 
 {% endcapture %}
 <details>{{ compat | markdownify }}</details>
@@ -523,7 +661,7 @@ Now that you have your NAND backup in a safe place:
 {% capture compat %}
 <summary><u>Information #05: No title database</u></summary>
 
-Press (A) to create a title database, unlock SysNAND writing by entering the buttons on-screen, follow the prompts [here](/images/screenshots/database-reset.jpg), then re-run the script.
+Press (A) to import a title database, unlock SysNAND writing by entering the buttons on-screen, then continue the script as normal.
 
 {% endcapture %}
 <details>{{ compat | markdownify }}</details>
@@ -533,11 +671,11 @@ Press (A) to create a title database, unlock SysNAND writing by entering the but
 
 SD 카드에 1.3GB 이상의 빈 공간이 있는지 확인해주세요. 빈 공간이 부족하다면 다음 단계를 따르세요.
 1. 콘솔의 전원을 꺼 주세요
-1. SD 카드를 분리해 컴퓨터에 장착해주세요
+1. SD 카드를 컴퓨터에 삽입해 주세요
 1. SD 카드의 루트에 있는 `Nintendo 3DS` 폴더를 컴퓨터에 복사해주세요
 1. SD 카드에서 `Nintendo 3DS` 폴더를 지워주세요
 1. SD 카드를 콘솔에 다시 삽입해 주세요
-1. 콘솔의 전원을 끄고, START 버튼을 누른 채 전원을 켜 GodMode9로 진입하세요
+1. (Start) 를 길게 누르고, 이 상태에서 콘솔의 전원을 켜 주세요. GodMode9이 실행될 겁니다
 1. [NAND 백업](godmode9-usage#creating-a-nand-backup)을 실행하세요
 1. SD 카드의 `gm9/out` 폴더 내 파일을 컴퓨터의 안전한 위치에 복사해 주세요
 1. SD 카드의 `/gm9/out` 폴더에서 essential.exefs는 남기고 `<date>_<serialnumber>_sysnand_##.bin` 및 `<date>_<serialnumber>_sysnand_##.bin.sha` 파일을 삭제해주세요
@@ -545,14 +683,6 @@ SD 카드에 1.3GB 이상의 빈 공간이 있는지 확인해주세요. 빈 공
 1. 컴퓨터에서 `Nintendo 3DS` 폴더를 지워주세요
 
 SD 카드의 용량이 충분하다면, SD 카드가 손상되었거나 불량일 수 있습니다. 컴퓨터의 운영 체제에 따라 SD 카드에 오류가 있는지를 확인해주세요: [Windows](h2testw-(windows)), [Linux](f3-(linux)), [macOS](f3xswift-(mac)).
-{% endcapture %}
-<details>{{ compat | markdownify }}</details>
-
-{% capture compat %}
-<summary><u>Error #08: Dummy title database</u></summary>
-
-You didn't delete the dummy title database that was created by Error #05. Follow the prompts [here](/images/screenshots/database-reset.jpg), then re-run the script.
-
 {% endcapture %}
 <details>{{ compat | markdownify }}</details>
 
@@ -565,14 +695,51 @@ You are somehow running a version of GodMode9 not packaged with the script. Make
 <details>{{ compat | markdownify }}</details>
 
 {% capture compat %}
-<summary><u>Information #11: NAND backup flag detected</u></summary>
+<summary><u>Error #11: Missing donor database</u></summary>
 
-You most likely already made a NAND backup on this console. If you did not make a backup or lost access to your backup, select "1. Make Another NAND Backup". Otherwise, select "2. Skip NAND Backup".
+You did not copy everything from `finalize.zip` to the root of your SD card. Remember, your SD card should have at least these files:
+
+![]({{ "/images/screenshots/finalizing-root-layout.png" | absolute_url }})
+{: .notice--info}
 
 {% endcapture %}
 <details>{{ compat | markdownify }}</details>
 
+{% capture compat %}
+<summary><u>Error #12: Copy (file).db fail</u></summary>
 
+Ensure that your SD card is not [locked](/images/sdlock.png). 이 상태가 아님에도 문제가 지속될 경우, [Nintendo Homebrew Discord 서버](https://discord.gg/MWxPgEp) 에 연락해 도움을 청하세요.
+
+{% endcapture %}
+<details>{{ compat | markdownify }}</details>
+
+{% capture compat %}
+<summary><u>Information #17: Duplicate NAND backup</u></summary>
+
+The script has detected that the Nintendo 3DS folder is missing AND that you have already made a NAND backup before. If you intend to install homebrew applications, you should do the following:
+
+1. Press (B) to cancel making another NAND backup
+1. (R)을 누른 채 (Start)를 눌러 콘솔의 전원을 꺼 주세요
+1. Copy the contents of `/gm9/backups/` to a safe location on your computer
+1. Delete `/gm9/backups/` from your SD card
+1. If you moved your Nintendo 3DS folder off of your SD card to get to this point, copy it back to your SD card
+    + If you do not have a Nintendo 3DS folder, boot into the HOME Menu at least once with the SD card inserted to automatically generate it
+1. (Start) 를 길게 누르고, 이 상태에서 콘솔의 전원을 켜 주세요. GodMode9이 실행될 겁니다
+1. (Home)을 눌러 작업 메뉴를 열어 주세요
+1. "Scripts..."를 선택해 주세요
+1. "finalize"를 선택해 주세요
+1. 스크립트 표시에 따라 필요한 행동을 취해주세요 
+
+{% endcapture %}
+<details>{{ compat | markdownify }}</details>
+
+{% capture compat %}
+<summary><u>Error #18: MSET9 detected</u></summary>
+
+You didn't remove MSET9 when prompted to. Follow [Section IV - Removing MSET9](installing-boot9strap-(mset9)#section-iv---removing-mset9), then re-run the script.
+
+{% endcapture %}
+<details>{{ compat | markdownify }}</details>
 
 ---
 
@@ -590,9 +757,9 @@ You most likely already made a NAND backup on this console. If you did not make 
 
 알림 LED가 깜빡인다면:
 
-+ **White**: Your 3DS was not able to find `boot.firm` on your SD card or on internal memory.
-+ **Magenta**: Your 3DS was not able to find `boot.firm` on your SD card. 내부 메모리에 있는 `boot.firm`을 확인했으나, 파일이 손상되었습니다.
-+ **Red**: Your 3DS was able to find `boot.firm` on both your SD card and on internal memory, but both files are corrupted.
++ **하얀색**: SD 카드 혹은 내부 메모리에서 `boot.firm`을 찾지 못했습니다.
++ **다홍색**: SD 카드에서 `boot.firm`을 찾지 못했습니다. 내부 메모리에 있는 `boot.firm`을 확인했으나, 파일이 손상되었습니다.
++ **빨간색**: `boot.firm` 파일을 찾았지만, SD 카드와 내부 메모리에 있는 파일 모두가 손상되었습니다.
 
 [Luma3DS의 최신 버전](https://github.com/LumaTeam/Luma3DS/releases/latest)을 다운받아 압축을 해제해, 새 `boot.firm` 파일을 SD 카드의 루트 디렉토리에 넣어주세요. (파일이 이미 있다면 덮어씌워주세요.) `boot.firm` 파일이 계속 문제가 있는 것으로 인식된다면, SD 카드에 문제가 있는지 확인해야 할 수 있습니다: ([Windows](h2testw-(windows)), [Linux](f3-(linux)), or [macOS](f3xswift-(mac))) 또, WinRAR로 압축 해제한 파일은 3DS에서 문제를 자주 일으키는 것으로 알려져 있습니다.
 
@@ -724,9 +891,9 @@ SD 카드가 읽혔는지 확인하려면 SELECT를 누른 채 부팅해 아래 
 <details>{{ compat | markdownify }}</details>
 
 {% capture compat %}
-<summary><u>Opening the HOME Menu settings crashes the console or loads the Homebrew Launcher</u></summary>
+<summary><u>HOME 메뉴 실행시 크래시가 발생하거나 Homebrew Launcher가 실행될 경우</u></summary>
 
-Your console likely still has menuhax67 installed. To uninstall menuhax67, download the latest release of [menuhax67](https://github.com/zoogie/menuhax67/releases/latest) (the menuhax `.zip`), then follow the ["Uninstall menuhax67" section](https://wiki.hacks.guide/wiki/3DS:Alternate_Exploits/menuhax67#Uninstall_menuhax67) here.
+menuhax67가 여전히 설치되어 있는 듯합니다. To uninstall menuhax67, download the latest release of [menuhax67](https://github.com/zoogie/menuhax67/releases/latest) (the menuhax `.zip`), then follow the ["Uninstall menuhax67" section](https://wiki.hacks.guide/wiki/3DS:Alternate_Exploits/menuhax67#Uninstall_menuhax67) here.
 {% endcapture %}
 <details>{{ compat | markdownify }}</details>
 
@@ -766,9 +933,9 @@ Your console likely still has menuhax67 installed. To uninstall menuhax67, downl
 <details>{{ compat | markdownify }}</details>
 
 {% capture compat %}
-<summary><u>Manually entering Homebrew Launcher</u></summary>
+<summary><u>Homebrew Launcher 수동 접근</u></summary>
 
-If you are missing the Homebrew Launcher application from your HOME Menu, you can follow these instructions to manually enter the Homebrew Launcher. (You will need [boot.3dsx and boot.firm](https://github.com/LumaTeam/Luma3DS/releases/latest) on the root of your SD card.)
+HOME 메뉴를 통해 Homebrew Launcher 애플리케이션에 접근이 불가능할 경우, 다음 방법을 통해 수동으로 Homebrew Launcher에 접근할 수 있습니다. (You will need [boot.3dsx and boot.firm](https://github.com/LumaTeam/Luma3DS/releases/latest) on the root of your SD card.)
 
 {% include_relative include/launch-hbl-dlp.txt %}
 
@@ -776,7 +943,7 @@ If you are missing the Homebrew Launcher application from your HOME Menu, you ca
 <details>{{ compat | markdownify }}</details>
 
 {% capture compat %}
-<summary><u>Turning off Parental Controls</u></summary>
+<summary><u>청소년 보호 기능 끄기</u></summary>
 
 You can disable the Parental Controls feature by going to System Settings -> Parental Controls and inserting the PIN, then pressing "Clear Settings", then "Delete" to remove it.
 However, if you do not know the PIN and therefore cannot access the console's settings, you will need to disable it. In order to do this, you need to obtain your console's master key (mkey):

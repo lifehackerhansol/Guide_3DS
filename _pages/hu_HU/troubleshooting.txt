@@ -18,6 +18,7 @@ Több oldalon használt:
 * [Boot9strap telepítése (Soundhax)](#installing-boot9strap-soundhax)
 * [Boot9strap telepítése (SSLoth-Browser)](#installing-boot9strap-ssloth-browser)
 * [Boot9strap telepítése (super-skaterhax)](#installing-boot9strap-super-skaterhax)
+* [Boot9strap telepítése (MSET9)](#installing-boot9strap-mset9)
 
 * [Telepítés véglegesítése](#finalizing-setup)
 
@@ -122,7 +123,7 @@ A friend code-od blokkolt friend code bot általi használattól, mert a 3DS-ed 
 
 A weboldal úgy találta, hogy a `movable.sed`-ed nem brute-force-olható. Ellenőrizd, hogy helyes ID0-t adtál-e meg a weboldalon. Ha az ID0-d helyes, akkor nem tudod használni a Seedminer-t és egy alternatív metódust kell használnod.
 
-Ha a konzolod New 3DS / New 3DS XL / New 2DS XL (amit a 4 váll gomb hátul és a C-Stick jobb oldalon jelez), követheted a [Boot9strap telepítése (super-skaterhax)](installing-boot9strap-(super-skaterhax)) lépéseit. Egyébként egy olyan másik metódust kell használnod ami további játékokat és hardvert igényel.
+A New 3DS felhasználók követhetik a [Boot9strap telepítése (super-skaterhax)](installing-boot9strap-(super-skaterhax)), míg az Old 3DS felhasználók a [Boot9strap telepítése (MSET9)](installing-boot9strap-(mset9)) útmutatókat. Ha nem tudsz MSET9 metódust használni valamiért, akkor olyan metódusra van szükséged, ami tovább játékot vagy hardvert igényel.
 
 {% endcapture %}
 <details>{{ compat | markdownify }}</details>
@@ -418,7 +419,7 @@ Ha a probléma továbbra is fennáll:
 {% capture compat %}
 <summary><u>"An error has occurred. Hold down the POWER button to turn off the power..." (fekete képernyő szöveggel)</u></summary>
 
-A `arm11code.bin` fájl hiányzik, vagy rossz helyen van. Make sure to copy the files of the [latest version of super-skaterhax](https://github.com/zoogie/super-skaterhax/releases/latest) for your region and version to the root of your SD card (not inside of a folder).
+A `arm11code.bin` fájl hiányzik, vagy rossz helyen van. Biztosítsd, hogy [super-skaterhax legfrissebb verziójából](https://github.com/zoogie/super-skaterhax/releases/latest) régiódhoz és verziódhoz tartozó fájlokat az SD kártya gyökerébe másold (nem egy mappán belülre).
 
 ![]({{ "/images/screenshots/skater-root-layout.png" | absolute_url }})
 {: .notice--info}
@@ -431,6 +432,151 @@ A `arm11code.bin` fájl hiányzik, vagy rossz helyen van. Make sure to copy the 
 <summary><u>Egy exception történik vagy "DLL_HEAP_INFORMATION" a GO! megnyomásakor! GO!</u></summary>
 
 Ez valószínűleg azt jelzi, hogy már van egyedi firmware-ed. Érdemes elvégezned a [CFW ellenőrzését](checking-for-cfw).
+
+{% endcapture %}
+<details>{{ compat | markdownify }}</details>
+
+## Installing boot9strap (MSET9)
+
+{% capture compat %}
+<summary><u>assert(id0_count == 1) AssertionError</u></summary>
+
+You have multiple ID0 folders. To determine the correct folder, follow these instructions:
+
+1. Nevezd át a `Nintendo 3DS` mappát `BACKUP_Nintendo 3DS` névre
+1. Tedd vissza az SD kártyád a konzoldba
+1. Kapcsold be a konzolod
+1. Várd meg, amíg a konzolod legenerálja az SD kártyára az adatokat
+    + Az alkalmazásaidnak el kell tűnniük. Ez normális, hamarosan megoldjuk
+1. Kapcsold ki a konzolod
+1. Helyezd az SD kártyád a számítógépbe
+1. Lépj be az SD kártyád `Nintendo 3DS` könyvtárába
+1. Write down the first few characters of the folder you see
+    + This is your true ID0, which we will keep in the real Nintendo 3DS folder
+1. Delete the ID0 from the current `Nintendo 3DS` folder
+1. Move the true ID0 folder from the `BACKUP_Nintendo 3DS` folder to the `Nintendo 3DS` folder
+1. If it exists, move the `Private` folder from the `BACKUP_Nintendo 3DS` folder to the `Nintendo 3DS` folder
+
+Once you've done this, continue from [Section I Step 7](installing-boot9strap-(mset9)#section-i---prep-work).
+
+{% endcapture %}
+<details>{{ compat | markdownify }}</details>
+
+{% capture compat %}
+<summary><u>(title/import).db does not exist, create them now?" / invalid database</u></summary>
+
+Full error messages:
+* "Nintendo 3DS/\<ID0>/\<ID1>/dbs/\<import.db and/or title.db> does not exist on SD card! Create them now? (type yes/no)"
+* "Invalid database"
+
+This happens when no valid title database is present, usually because you never installed any titles from eShop on this SD card.
+
+1. Type "yes", then press Enter
+1. Insert the SD card into your console
+1. Kapcsold be a konzolod
+1. Navigate to System Settings -> Data Management -> Nintendo 3DS -> Software -> Reset ([visual instructions](/images/screenshots/database-reset.jpg))
+1. Kapcsold ki a konzolod
+1. Insert the SD card into your computer
+1. Return to [Section I Step 7](installing-boot9strap-(mset9)#section-i---prep-work)
+
+{% endcapture %}
+<details>{{ compat | markdownify }}</details>
+
+{% capture compat %}
+<summary><u>[WinError 5] Access is denied</u></summary>
+
+The SD card may be write-locked. If you are using a full-size SD card, ensure that the lock is flipped in the [upright position](/images/sdlock.png). Otherwise, try ejecting and reinserting your SD card.
+
+{% endcapture %}
+<details>{{ compat | markdownify }}</details>
+
+
+{% capture compat %}
+<summary><u>UnboundLocalError: cannot access local variable 'haxid1_path'</u></summary>
+
+This can happen when Option 1 stopped because of an error and there is an incomplete installation.
+
+1. Close the script window
+1. Execute the `mset9.py` script on the root of the SD card
+    + **Windows**: Double-click `mset9.bat`
+        +If this doesn't work: hold SHIFT and right-click anywhere in the SD card window, then click the option that opens Terminal, PowerShell, or Command Prompt, then type `py -3 mset9.py` and press Enter
+    + **Linux**: open a Terminal window, `cd` to the root of your SD card, then type `python3 mset9.py` and press Enter
+    + You should see a window that says "MSET9 ... SETUP by zoogie"
+1. Type the number corresponding to your console model and version, then press Enter
+1. Type `4`, then press Enter to remove MSET9
+1. Return to the [beginning of Section I](installing-boot9strap-(mset9)#section-i---prep-work)
+
+{% endcapture %}
+<details>{{ compat | markdownify }}</details>
+
+{% capture compat %}
+<summary><u>Red screen after reinserting SD card (Section II Step 11)</u></summary>
+
+You may be missing `SafeB9S.bin` from the root of your SD card, or the file may be corrupted. Copy it from the `SDMC` folder in the MSET9 `.zip`, replacing any existing files.
+
+Alternatively, your SD card may be improperly formatted or partitioned. Try reformatting your SD card: [Windows](formatting-sd-(windows)), [Linux](formatting-sd-(linux)) *(this will wipe your SD card data)*
+
+{% endcapture %}
+<details>{{ compat | markdownify }}</details>
+
+{% capture compat %}
+<summary><u>assert(mii_ok==1) AssertionError</u></summary>
+
+Your SD card does not have Mii Maker Data, which is necessary for this exploit to run.
+
+1. Close the script window
+1. Execute the `mset9.py` script on the root of the SD card
+    + **Windows**: Double-click `mset9.bat`
+        + If this doesn't work: hold SHIFT and right-click anywhere in the SD card window, then click the option that opens Terminal, PowerShell, or Command Prompt, then type `py -3 mset9.py` and press Enter
+    + **Linux**: open a Terminal window, `cd` to the root of your SD card, then type `python3 mset9.py` and press Enter
+    + You should see a window that says "MSET9 ... SETUP by zoogie"
+1. Type the number corresponding to your console model and version, then press Enter
+1. Type `4`, then press Enter to remove MSET9
+1. Insert the SD card into your console
+1. Kapcsold be a konzolod
+1. Launch Mii Maker
+1. Wait for your console to reach the "Welcome to Mii Maker" screen, then exit Mii Maker
+1. Kapcsold ki a konzolod
+1. Insert the SD card into your computer
+1. Return to [Section I Step 7](installing-boot9strap-(mset9)#section-i---prep-work)
+
+{% endcapture %}
+<details>{{ compat | markdownify }}</details>
+
+{% capture compat %}
+<summary><u>System Settings loading infinitely after reinserting the SD card</u></summary>
+
+You most likely did something different from the MSET9 instructions, or selected the wrong model or version.
+
+1. Close the script window
+1. Execute the `mset9.py` script on the root of the SD card
+    + **Windows**: Double-click `mset9.bat`
+        + If this doesn't work: hold SHIFT and right-click anywhere in the SD card window, then click the option that opens Terminal, PowerShell, or Command Prompt, then type `py -3 mset9.py` and press Enter
+    + **Linux**: open a Terminal window, `cd` to the root of your SD card, then type `python3 mset9.py` and press Enter
+    + You should see a window that says "MSET9 ... SETUP by zoogie"
+1. Type the number corresponding to your console model and version, then press Enter
+1. Type `3`, then press Enter
+1. Once the window says "Deleting... done.", insert the SD card into your console
+1. Kapcsold be a konzolod
+1. Return to [Section II Step 1](installing-boot9strap-(mset9)#section-ii---mset9)
+
+If you continue to have this issue and are sure that you did everything correctly, it's possible that there's something wrong with your Mii Maker extdata. Follow these instructions to reset it:
+
+1. Close the script window
+1. Execute the `mset9.py` script on the root of the SD card
+    + **Windows**: Double-click `mset9.bat`
+        + If this doesn't work: hold SHIFT and right-click anywhere in the SD card window, then click the option that opens Terminal, PowerShell, or Command Prompt, then type `py -3 mset9.py` and press Enter
+    + **Linux**: open a Terminal window, `cd` to the root of your SD card, then type `python3 mset9.py` and press Enter
+    + You should see a window that says "MSET9 ... SETUP by zoogie"
+1. Type the number corresponding to your console model and version, then press Enter
+1. Type `4`, then press Enter to remove MSET9
+1. Insert the SD card into your console
+1. Kapcsold be a konzolod
+1. Launch Mii Maker
+1. Wait for your console to reach the "Welcome to Mii Maker" screen, then exit Mii Maker
+1. Kapcsold ki a konzolod
+1. Insert the SD card into your computer
+1. Return to [Section I Step 7](installing-boot9strap-(mset9)#section-i---prep-work)
 
 {% endcapture %}
 <details>{{ compat | markdownify }}</details>
@@ -455,17 +601,9 @@ Az alábbi lépések tetszőleges sorrendben hajthatók végre, azonban a lista 
 <details>{{ compat | markdownify }}</details>
 
 {% capture compat %}
-<summary><u>Warning #01: No Nintendo 3DS folder</u></summary>
-
-Az SD kártyádon nincs `Nintendo 3DS` mappa. Power on your device with your SD card inserted, then wait for the device to show a message box that says "Creating HOME Menu management information". Once the message box disappears, power off your device and try again.
-
-{% endcapture %}
-<details>{{ compat | markdownify }}</details>
-
-{% capture compat %}
 <summary><u>Error #02: Missing essential.exefs</u></summary>
 
-You said 'No' to the "Make essential files backup?" prompt in GodMode9. Power off your device, power it on while holding (Start) to re-enter GodMode9, say 'Yes' to the prompt, then try again.
+You said 'No' to the "Make essential files backup?" prompt in GodMode9. Power off your console, power it on while holding (Start) to re-enter GodMode9, say 'Yes' to the prompt, then try again.
 
 {% endcapture %}
 <details>{{ compat | markdownify }}</details>
@@ -489,12 +627,11 @@ You did not copy everything from `finalize.zip` to the root of your SD card. Rem
 You need at least 1.3GB of free space to perform the NAND backup, which is a part of the script. Ha nincs elég szabad helyed, kövesd ezeket a lépéseket:
 
 1. Kapcsold ki a konzolod
-1. Távolítsd el az SD kártyád, majd csatlakoztasd a számítógépedhez
+1. Helyezd az SD kártyád a számítógépbe
 1. Másold a `Nintendo 3DS` mappát az SD kártya gyökeréből a számítógépedre
 1. Töröld a Nintendo 3DS mappát az SD kártyáról
 1. Tedd vissza az SD kártyád a konzoldba
-1. Kapcsold ki a konzolod
-1. Hold START and power on still holding START to open GodMode9
+1. Nyomd le és tartsd nyomva a (Start) gombot, és a (Start) nyomva tartása mellett kapcsold be a konzolod. Ez elindítja a GodMode9-et
 1. Press the (Home) button
 1. Válaszd a "Scripts..." opciót
 1. Válaszd az "finalize" opciót
@@ -511,11 +648,12 @@ You need at least 1.3GB of free space to perform the NAND backup, which is a par
 Now that you have your NAND backup in a safe place:
 
 1. Tedd vissza az SD kártyád a konzoldba
-1. Hold START and power on still holding START to open GodMode9
+1. Nyomd le és tartsd nyomva a (Start) gombot, és a (Start) nyomva tartása mellett kapcsold be a konzolod. Ez elindítja a GodMode9-et
 1. Press the (Home) button
 1. Válaszd a "Scripts..." opciót
 1. Válaszd az "finalize" opciót
 1. Continue the script as normal
+    + The NAND backup will be automatically skipped
 
 {% endcapture %}
 <details>{{ compat | markdownify }}</details>
@@ -523,7 +661,7 @@ Now that you have your NAND backup in a safe place:
 {% capture compat %}
 <summary><u>Information #05: No title database</u></summary>
 
-Press (A) to create a title database, unlock SysNAND writing by entering the buttons on-screen, follow the prompts [here](/images/screenshots/database-reset.jpg), then re-run the script.
+Press (A) to import a title database, unlock SysNAND writing by entering the buttons on-screen, then continue the script as normal.
 
 {% endcapture %}
 <details>{{ compat | markdownify }}</details>
@@ -533,11 +671,11 @@ Press (A) to create a title database, unlock SysNAND writing by entering the but
 
 Győződj meg róla, hogy legalább 1.3 GB szabad hely van az SD kártyádon. Ha nincs elég szabad helyed, kövesd ezeket a lépéseket:
 1. Kapcsold ki a konzolod
-1. Távolítsd el az SD kártyád, majd csatlakoztasd a számítógépedhez
+1. Helyezd az SD kártyád a számítógépbe
 1. Másold a `Nintendo 3DS` mappát az SD kártya gyökeréből a számítógépedre
 1. Töröld a Nintendo 3DS mappát az SD kártyáról
 1. Tedd vissza az SD kártyád a konzoldba
-1. Kapcsold ki a konzolod, tartsd nyomva a START és power gombokat, továbbra is nyomva a START gombot a GodMode9-be bootoláshoz
+1. Nyomd le és tartsd nyomva a (Start) gombot, és a (Start) nyomva tartása mellett kapcsold be a konzolod. Ez elindítja a GodMode9-et
 1. Hajts végre egy [NAND Backup](godmode9-usage#creating-a-nand-backup)-ot
 1. Másold a `gm9/out` mappát az SD kártyádról egy biztonságos helyre a számítógépeden
 1. Töröld a `<date>_<serialnumber>_sysnand_##.bin` és a `<date>_<serialnumber>_sysnand_##.bin.sha` fájlokat az SD kártyád `/gm9/out/` mappájából, megtartva az essential.exefs-t a `/gm9/out/` -ban
@@ -545,14 +683,6 @@ Győződj meg róla, hogy legalább 1.3 GB szabad hely van az SD kártyádon. Ha
 1. Töröld a `Nintendo 3DS` mappát a számítógépedről
 
 Ha van elég szabad hely az SD kártyádon, az SD kártya lehet sérült vagy hibás. Ellenőrizd az SD kártyádat hibákra valamelyik programmal az alábbiak közül az operációs rendszerednek megfelelően: [Windows](h2testw-(windows)), [Linux](f3-(linux)), [macOS](f3xswift-(mac)).
-{% endcapture %}
-<details>{{ compat | markdownify }}</details>
-
-{% capture compat %}
-<summary><u>Error #08: Dummy title database</u></summary>
-
-You didn't delete the dummy title database that was created by Error #05. Follow the prompts [here](/images/screenshots/database-reset.jpg), then re-run the script.
-
 {% endcapture %}
 <details>{{ compat | markdownify }}</details>
 
@@ -565,14 +695,51 @@ You are somehow running a version of GodMode9 not packaged with the script. Make
 <details>{{ compat | markdownify }}</details>
 
 {% capture compat %}
-<summary><u>Information #11: NAND backup flag detected</u></summary>
+<summary><u>Error #11: Missing donor database</u></summary>
 
-You most likely already made a NAND backup on this console. If you did not make a backup or lost access to your backup, select "1. Make Another NAND Backup". Otherwise, select "2. Skip NAND Backup".
+You did not copy everything from `finalize.zip` to the root of your SD card. Remember, your SD card should have at least these files:
+
+![]({{ "/images/screenshots/finalizing-root-layout.png" | absolute_url }})
+{: .notice--info}
 
 {% endcapture %}
 <details>{{ compat | markdownify }}</details>
 
+{% capture compat %}
+<summary><u>Error #12: Copy (file).db fail</u></summary>
 
+Ensure that your SD card is not [locked](/images/sdlock.png). If the SD card is not locked and you continue to get this error, join [Nintendo Homebrew on Discord](https://discord.gg/MWxPgEp) for assistance.
+
+{% endcapture %}
+<details>{{ compat | markdownify }}</details>
+
+{% capture compat %}
+<summary><u>Information #17: Duplicate NAND backup</u></summary>
+
+The script has detected that the Nintendo 3DS folder is missing AND that you have already made a NAND backup before. If you intend to install homebrew applications, you should do the following:
+
+1. Press (B) to cancel making another NAND backup
+1. Az (R) lenyomva tartása közben nyomd meg a (Start) gombot a konzolod kikapcsolásához
+1. Copy the contents of `/gm9/backups/` to a safe location on your computer
+1. Delete `/gm9/backups/` from your SD card
+1. If you moved your Nintendo 3DS folder off of your SD card to get to this point, copy it back to your SD card
+    + If you do not have a Nintendo 3DS folder, boot into the HOME Menu at least once with the SD card inserted to automatically generate it
+1. Nyomd le és tartsd nyomva a (Start) gombot, és a (Start) nyomva tartása mellett kapcsold be a konzolod. Ez elindítja a GodMode9-et
+1. Nyomd meg a (Home) gombot, hogy megjelenjen a műveleti menü
+1. Válaszd a "Scripts..." opciót
+1. Válaszd az "finalize" opciót
+1. Kövesd a script utasításait és válaszolj meg minden kérdést 
+
+{% endcapture %}
+<details>{{ compat | markdownify }}</details>
+
+{% capture compat %}
+<summary><u>Error #18: MSET9 detected</u></summary>
+
+You didn't remove MSET9 when prompted to. Follow [Section IV - Removing MSET9](installing-boot9strap-(mset9)#section-iv---removing-mset9), then re-run the script.
+
+{% endcapture %}
+<details>{{ compat | markdownify }}</details>
 
 ---
 
@@ -659,8 +826,8 @@ Ez különböző okokból is előfordulhat, de leginkább azért, mert az SD ká
 Ellenőrizheted, hogy az SD kártyád olvasásra kerül-e a SELECT gomb nyomva tartásával bootoláskor, és az alsó képernyőn megjelenő sárga szöveg ellenőrzésével; ha azt mondja, hogy "Booted from CTRNAND via B9S", akkor a konzolod a belső memóriáról bootolt, nem az SD kártyáról.
 Ha ez a helyzet, próbáld meg a lépéseket alább, ami a legkönnyebbtől a legnehezebbig került felsorolásra:
 1. Kapcsold ki a konzolod, vedd ki majd tedd vissz az SD kártyát, majd kapcsold be újra a konzolod
-1. Kapcsold ki a konzolod, távolítsd el az SD kártyád, majd csatlakoztasd a PC-dhez. Töltsd le a legutolsó kiadását az [Luma3DS](https://github.com/LumaTeam/Luma3DS/releases/latest)-nek és csomagold ki a `Luma3DS.zip` fájlból a `boot.firm` fájlt, majd rakd az SD kártyád gyökerébe (felülírva bármilyen létező fájlt)
-1. Kapcsold ki a konzolod, távolítsd el az SD kártyát, csatlakoztasd a PC-dhez és formázd újra az SD kártyád az operációs rendszerednek megfelelően: [Windows](formatting-sd-(windows)), [macOS](formatting-sd-(mac)), [Linux](formatting-sd-(linux)) *(ez törölni fogja az SD kártya adatait)*
+1. Power off your console, remove the SD card, insert it on your computer, download the latest release of [Luma3DS](https://github.com/LumaTeam/Luma3DS/releases/latest), extract `boot.firm` from the `Luma3DS.zip` and place it on the root of your SD card (replacing any existing file)
+1. Power off your console, remove the SD card, insert it on your computer and reformat your SD card according to your computer's operating system: [Windows](formatting-sd-(windows)), [macOS](formatting-sd-(mac)), [Linux](formatting-sd-(linux)) *(this will wipe your SD card data)*
 1. Teszteld az SD kártyádat hibákra az operációs rendszerednek megfelelő útmutató szerint haladva: [Windows](h2testw-(windows)), [Linux](f3-(linux)), [macOS](f3xswift-(mac)). Ha az SD kártyád hibásnak jelölt, cserélned kell az SD kártyádat
 1. Az SD kártya foglalatod is lehet hibás. Csatlakozz a[Nintendo Homebrew-hoz Discord-on](https://discord.gg/MWxPgEp) további segítségért
 {% endcapture %}

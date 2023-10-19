@@ -18,6 +18,7 @@ Pagine guida:
 * [Installazione di boot9strap (Soundhax)](#installing-boot9strap-soundhax)
 * [Installazione di boot9strap (SSLoth-Browser)](#installing-boot9strap-ssloth-browser)
 * [Installazione di boot9strap (super-skaterhax)](#installing-boot9strap-super-skaterhax)
+* [Installazione di boot9strap (MSET9)](#installing-boot9strap-mset9)
 
 * [Completamento dell'installazione](#finalizing-setup)
 
@@ -122,7 +123,7 @@ Il tuo codice amico non può più usare il bot perché il tuo 3DS non ha accetta
 
 Il sito ha stabilito che il tuo file `movable.sed` non può essere decriptato. Assicurati di aver dato l'ID0 corretto al sito web. Se il tuo ID0 è corretto, allora non potrai utilizzare Seedminer e dovrai utilizzare un metodo alternativo.
 
-Se hai un New 3DS / New 3DS XL / New 2DS XL (riconoscibili dai quattro pulsanti dorsali e dal C-Stick sulla destra), puoi seguire [Installazione di boot9strap (super-skaterhax)](installing-boot9strap-(super-skaterhax)). Altrimenti, dovrai seguire un metodo che richiede ulteriori giochi o dispositivi.
+Gli utenti di New 3DS possono seguire l'[Installazione di boot9strap (super-skaterhax)](installing-boot9strap-(super-skaterhax)), mentre gli utenti di Old 3DS possono seguire l'[Installazione di boot9strap (MSET9)](installing-boot9strap-(mset9)). Se per qualche motivo non puoi eseguire MSET9, dovrai seguire un metodo che richiede ulteriori giochi o dispositivi.
 
 {% endcapture %}
 <details>{{ compat | markdownify }}</details>
@@ -435,6 +436,151 @@ Probabilmente significa che hai già un custom firmware. Dovresti [verificare la
 {% endcapture %}
 <details>{{ compat | markdownify }}</details>
 
+## Installazione di boot9strap (MSET9)
+
+{% capture compat %}
+<summary><u>assert(id0_count == 1) AssertionError</u></summary>
+
+Hai più cartelle ID0. Per determinare la cartella corretta, segui queste istruzioni:
+
+1. Rinomina la cartella `Nintendo 3DS` in `BACKUP_Nintendo 3DS`
+1. Reinserisci la scheda SD nella tua console
+1. Accendi la tua console
+1. Attendi che la console generi i dati nella scheda SD
+    + Le tue applicazioni saranno scomparse. È normale e verrà risolto a breve
+1. Spegni la tua console
+1. Inserisci la scheda SD nel tuo computer
+1. Entra nella cartella `Nintendo 3DS` della tua scheda SD
+1. Trascrivi i primi caratteri della cartella che vedi
+    + Questo è il tuo vero ID0, che manterremo nella cartella Nintendo 3DS reale
+1. Elimina la cartella ID0 dalla cartella `Nintendo 3DS` corrente
+1. Sposta la vera cartella ID0 dalla cartella `BACKUP_Nintendo 3DS` nella cartella `Nintendo 3DS`
+1. Se esiste, sposta la cartella `Private` dalla cartella `BACKUP_Nintendo 3DS` nella cartella `Nintendo 3DS`
+
+Al termine, continua dalla [Sezione I Passo 7](installing-boot9strap-(mset9)#section-i---prep-work).
+
+{% endcapture %}
+<details>{{ compat | markdownify }}</details>
+
+{% capture compat %}
+<summary><u>(title/import).db does not exist, create them now?" / invalid database</u></summary>
+
+Messaggi di errore completi:
+* "Nintendo 3DS/\<ID0>/\<ID1>/dbs/\<import.db and/or title.db> does not exist on SD card! Create them now? (type yes/no)"
+* "Invalid database"
+
+Questo accade quando non è presente alcun database valido dei titoli, di solito perché non hai mai installato alcun titolo da eShop su questa scheda SD.
+
+1. Digita "yes", quindi premi Invio
+1. Inserisci la scheda SD nella tua console
+1. Accendi la tua console
+1. Entra in Impostazioni della console -> Gestione dati -> Nintendo 3DS -> Software -> Reset ([istruzioni visive](/images/screenshots/database-reset.jpg))
+1. Spegni la tua console
+1. Inserisci la scheda SD nel tuo computer
+1. Ritorna alla [Sezione I Passo 7](installing-boot9strap-(mset9)#section-i---prep-work)
+
+{% endcapture %}
+<details>{{ compat | markdownify }}</details>
+
+{% capture compat %}
+<summary><u>[WinError 5] Access is denied</u></summary>
+
+La scheda SD può essere protetta dalla scrittura. Se stai utilizzando una scheda SD standard, assicurati che il blocco sia impostato [verso l'alto](/images/sdlock.png). Altrimenti, prova a espellere e reinserire la scheda SD.
+
+{% endcapture %}
+<details>{{ compat | markdownify }}</details>
+
+
+{% capture compat %}
+<summary><u>UnboundLocalError: cannot access local variable 'haxid1_path'</u></summary>
+
+Questo può accadere quando l'opzione 1 viene interrotta a causa di un errore e ora si trova un'installazione incompleta.
+
+1. Chiudi la finestra dello script
+1. Esegui lo script `mset9.py` nella directory principale della tua scheda SD
+    + **Windows**: Doppio click su `mset9.bat`
+        +Se non funziona: tieni premuto Maiusc e fai clic con il tasto destro del mouse in qualsiasi punto della finestra della scheda SD, quindi fai clic sull'opzione che apre il terminale, PowerShell o Prompt dei comandi, quindi digita `py -3 mset9. y` e premi Invio
+    + **Linux**: apri una finestra del terminale, `cd` nella directory principale della tua scheda SD, quindi digita `python3 mset9.py` e premi Invio
+    + Dovresti vedere una finestra con scritto "MSET9 ... SETUP by zoogie"
+1. Digita il numero corrispondente al modello di console e alla versione, quindi premi Invio
+1. Digita `4`, quindi premi Invio per rimuovere MSET9
+1. Ritorna all'[inizio della Sezione I](installing-boot9strap-(mset9)#section-i---prep-work)
+
+{% endcapture %}
+<details>{{ compat | markdownify }}</details>
+
+{% capture compat %}
+<summary><u>Schermata rossa dopo il reinserimento della scheda SD (Sezione II Passo 11)</u></summary>
+
+Potrebbe mancarti il file `SafeB9S.bin` dalla directory principale della tua scheda SD, o il file potrebbe essere danneggiato. Copialo dalla cartella `SDMC` dell'archivio `.zip` di MSET9, sostituendo qualsiasi file esistente.
+
+Altrimenti, la scheda SD potrebbe essere formattata o partizionata in modo errato. Prova a riformattare la tua scheda SD: [Windows](formatting-sd-(windows)), [Linux](formatting-sd-(linux)) *(questo cancellerà i dati della tua scheda SD)*
+
+{% endcapture %}
+<details>{{ compat | markdownify }}</details>
+
+{% capture compat %}
+<summary><u>assert(mii_ok==1) AssertionError</u></summary>
+
+La tua scheda SD non ha i dati del Centro di creazione Mii, necessari per il funzionamento di questo exploit.
+
+1. Chiudi la finestra dello script
+1. Esegui lo script `mset9.py` nella directory principale della tua scheda SD
+    + **Windows**: Doppio click su `mset9.bat`
+        + Se non funziona: tieni premuto Maiusc e fai clic con il tasto destro del mouse in qualsiasi punto della finestra della scheda SD, quindi fai clic sull'opzione che apre il terminale, PowerShell o Prompt dei comandi, quindi digita `py -3 mset9. y` e premi Invio
+    + **Linux**: apri una finestra del terminale, `cd` nella directory principale della tua scheda SD, quindi digita `python3 mset9.py` e premi Invio
+    + Dovresti vedere una finestra con scritto "MSET9 ... SETUP by zoogie"
+1. Digita il numero corrispondente al modello di console e alla versione, quindi premi Invio
+1. Digita `4`, quindi premi Invio per rimuovere MSET9
+1. Inserisci la scheda SD nella tua console
+1. Accendi la tua console
+1. Avvia il Centro di creazione Mii
+1. Attendi che la console raggiunga la schermata "Benvenuto nel Centro di creazione Mii", quindi esci dall'applicazione
+1. Spegni la tua console
+1. Inserisci la scheda SD nel tuo computer
+1. Ritorna alla [Sezione I Passo 7](installing-boot9strap-(mset9)#section-i---prep-work)
+
+{% endcapture %}
+<details>{{ compat | markdownify }}</details>
+
+{% capture compat %}
+<summary><u>Caricamento infinito delle Impostazioni della console dopo il reinserimento della scheda SD</u></summary>
+
+Molto probabilmente hai fatto qualcosa di diverso dalle istruzioni di MSET9 fornite, o hai selezionato il modello o la versione sbagliata di console.
+
+1. Chiudi la finestra dello script
+1. Esegui lo script `mset9.py` nella directory principale della tua scheda SD
+    + **Windows**: Doppio click su `mset9.bat`
+        + Se non funziona: tieni premuto Maiusc e fai clic con il tasto destro del mouse in qualsiasi punto della finestra della scheda SD, quindi fai clic sull'opzione che apre il terminale, PowerShell o Prompt dei comandi, quindi digita `py -3 mset9. y` e premi Invio
+    + **Linux**: apri una finestra del terminale, `cd` nella directory principale della tua scheda SD, quindi digita `python3 mset9.py` e premi Invio
+    + Dovresti vedere una finestra con scritto "MSET9 ... SETUP by zoogie"
+1. Digita il numero corrispondente al modello di console e alla versione, quindi premi Invio
+1. Digita `3`, quindi premi Invio
+1. Quando la finestra mostra il messaggio "Deleting... done.", inserisci la scheda SD nella tua console
+1. Accendi la tua console
+1. Ritorna alla [Sezione II Passo 1](installing-boot9strap-(mset9)#section-ii---mset9)
+
+Se continui a riscontrare questo problema e sei sicuro di aver seguito tutto correttamente, potrebbe esserci qualcosa di sbagliato negli extdata del tuo Centro di creazione Mii. Segui queste istruzioni per resettarli:
+
+1. Chiudi la finestra dello script
+1. Esegui lo script `mset9.py` nella directory principale della tua scheda SD
+    + **Windows**: Doppio click su `mset9.bat`
+        + Se non funziona: tieni premuto Maiusc e fai clic con il tasto destro del mouse in qualsiasi punto della finestra della scheda SD, quindi fai clic sull'opzione che apre il terminale, PowerShell o Prompt dei comandi, quindi digita `py -3 mset9. y` e premi Invio
+    + **Linux**: apri una finestra del terminale, `cd` nella directory principale della tua scheda SD, quindi digita `python3 mset9.py` e premi Invio
+    + Dovresti vedere una finestra con scritto "MSET9 ... SETUP by zoogie"
+1. Digita il numero corrispondente al modello di console e alla versione, quindi premi Invio
+1. Digita `4`, quindi premi Invio per rimuovere MSET9
+1. Inserisci la scheda SD nella tua console
+1. Accendi la tua console
+1. Avvia il Centro di creazione Mii
+1. Attendi che la console raggiunga la schermata "Benvenuto nel Centro di creazione Mii", quindi esci dall'applicazione
+1. Spegni la tua console
+1. Inserisci la scheda SD nel tuo computer
+1. Ritorna alla [Sezione I Passo 7](installing-boot9strap-(mset9)#section-i---prep-work)
+
+{% endcapture %}
+<details>{{ compat | markdownify }}</details>
+
 ## Completamento dell'installazione
 
 {% capture compat %}
@@ -451,14 +597,6 @@ I passaggi qui sotto possono essere seguiti in qualsiasi ordine, ma sono elencat
 1. I server Nintendo potrebbero essere irraggiungibili. Riprova più tardi
 1. Se continui a ricevere un errore, [segui la guida per il CTRTransfer](ctrtransfer), poi ritenta l'aggiornamento
 1. Se hai bisogno di aiuto (in inglese), entra nel [canale Discord di Nintendo Homebrew](https://discord.gg/MWxPgEp)
-{% endcapture %}
-<details>{{ compat | markdownify }}</details>
-
-{% capture compat %}
-<summary><u>Warning #01: No Nintendo 3DS folder</u></summary>
-
-La tua scheda SD non ha una cartella `Nintendo 3DS`. Accendi la tua console con la scheda SD inserita, quindi attendi che la console mostri il messaggio "Creazione delle informazioni di sistema del menu HOME". Quando scompare il messaggio, spegni la console e riprova.
-
 {% endcapture %}
 <details>{{ compat | markdownify }}</details>
 
@@ -489,12 +627,11 @@ Non hai copiato tutto dall'archivio `finalize.zip` nella directory principale de
 Hai bisogno di almeno 1,3GB di spazio libero per eseguire il backup della NAND, che è una parte dello script. Se non hai abbastanza spazio, segui questi passaggi:
 
 1. Spegni la tua console
-1. Rimuovi la scheda SD e inseriscila nel tuo computer
+1. Inserisci la scheda SD nel tuo computer
 1. Copia la cartella `Nintendo 3DS` dalla directory principale della tua scheda SD al tuo computer
 1. Elimina la cartella `Nintendo 3DS` dalla scheda SD
 1. Reinserisci la scheda SD nella tua console
-1. Spegni la tua console
-1. Accendi la console tenendo premuto il tasto START per avviare GodMode9
+1. Premi (Start) e accendi la console continuando a tenerlo premuto. Verrà avviato GodMode9
 1. Premi il pulsante (Home)
 1. Seleziona "Scripts..."
 1. Seleziona "finalize"
@@ -511,11 +648,12 @@ Hai bisogno di almeno 1,3GB di spazio libero per eseguire il backup della NAND, 
 Ora che hai il backup della NAND in un luogo sicuro:
 
 1. Reinserisci la scheda SD nella tua console
-1. Accendi la console tenendo premuto il tasto START per avviare GodMode9
+1. Premi (Start) e accendi la console continuando a tenerlo premuto. Verrà avviato GodMode9
 1. Premi il pulsante (Home)
 1. Seleziona "Scripts..."
 1. Seleziona "finalize"
 1. Continua lo script normalmente
+    + Il backup della NAND verrà automaticamente saltato
 
 {% endcapture %}
 <details>{{ compat | markdownify }}</details>
@@ -523,7 +661,7 @@ Ora che hai il backup della NAND in un luogo sicuro:
 {% capture compat %}
 <summary><u>Information #05: No title database</u></summary>
 
-Premi (A) per creare un database dei titoli, sblocca la scrittura della SysNAND inserendo i pulsanti a schermo, segui le istruzioni [qui](/images/screenshots/database-reset.jpg), quindi riesegui lo script.
+Premi (A) per importare un database dei titoli, inserisci i pulsanti mostrati a schermo per sbloccare la scrittura su SysNAND, quindi prosegui normalmente con lo script.
 
 {% endcapture %}
 <details>{{ compat | markdownify }}</details>
@@ -533,11 +671,11 @@ Premi (A) per creare un database dei titoli, sblocca la scrittura della SysNAND 
 
 Assicurati di avere almeno 1.3GB disponibili nella tua scheda SD. Se non hai abbastanza spazio, segui questi passaggi:
 1. Spegni la tua console
-1. Rimuovi la scheda SD e inseriscila nel tuo computer
+1. Inserisci la scheda SD nel tuo computer
 1. Copia la cartella `Nintendo 3DS` dalla directory principale della tua scheda SD al tuo computer
 1. Elimina la cartella `Nintendo 3DS` dalla scheda SD
 1. Reinserisci la scheda SD nella tua console
-1. Spegni la tua console, dopodiché riaccendila tenendo premuto il tasto START per avviare GodMode9
+1. Premi (Start) e accendi la console continuando a tenerlo premuto. Verrà avviato GodMode9
 1. Esegui un [Backup NAND](godmode9-usage#creating-a-nand-backup)
 1. Copia i file in `gm9/out` sulla tua SD in una posizione sicura sul tuo computer
 1. Elimina i file `<data>_<seriale>_sysnand_##.bin` e `<data>_<seriale>_sysnand_##.bin.sha` dalla scheda SD, mantenendo il file `essential.exefs` in `/gm9/out/`
@@ -545,14 +683,6 @@ Assicurati di avere almeno 1.3GB disponibili nella tua scheda SD. Se non hai abb
 1. Elimina la cartella `Nintendo 3DS` dal tuo computer
 
 Se riieni di avere abbastanza spazio sulla tua scheda SD, questa potrebbe essere danneggiata o difettosa. Verifica la presenza di eventuali errori nella tua scheda SD seguendo la guida corretta per il sistema operativo del tuo computer: [Windows](h2testw-(windows)), [Linux](f3-(linux)), [macOS](f3xswift-(mac)).
-{% endcapture %}
-<details>{{ compat | markdownify }}</details>
-
-{% capture compat %}
-<summary><u>Error #08: Dummy title database</u></summary>
-
-Non hai eliminato il database dei titoli fittizio creato da Error #05. Segui le istruzioni [qui](/images/screenshots/database-reset.jpg), quindi esegui nuovamente lo script.
-
 {% endcapture %}
 <details>{{ compat | markdownify }}</details>
 
@@ -565,14 +695,51 @@ Per qualche motivo stai eseguendo una versione di GodMode9 non inclusa con lo sc
 <details>{{ compat | markdownify }}</details>
 
 {% capture compat %}
-<summary><u>Information #11: NAND backup flag detected</u></summary>
+<summary><u>Error #11: Missing donor database</u></summary>
 
-Molto probabilmente hai già fatto un backup della NAND su questa console. Se non hai fatto un backup o ne hai perso l'accesso, seleziona "1. Make Another NAND Backup". Altrimenti, seleziona "2. Skip NAND Backup".
+Non hai copiato tutto dall'archivio `finalize.zip` nella directory principale della tua scheda SD. Ricorda, la tua scheda SD deve avere almeno questi file:
+
+![]({{ "/images/screenshots/finalizing-root-layout.png" | absolute_url }})
+{: .notice--info}
 
 {% endcapture %}
 <details>{{ compat | markdownify }}</details>
 
+{% capture compat %}
+<summary><u>Error #12: Copy (file).db fail</u></summary>
 
+Assicurati che la tua scheda SD non sia [protetta dalla scrittura](/images/sdlock.png). Se la scheda SD non è protetta e continui ad ottenere questo errore, entra nel [canale Nintendo Homebrew su Discord](https://discord.gg/MWxPgEp) per ricevere assistenza.
+
+{% endcapture %}
+<details>{{ compat | markdownify }}</details>
+
+{% capture compat %}
+<summary><u>Information #17: Duplicate NAND backup</u></summary>
+
+Lo script ha rilevato che manca la cartella Nintendo 3DS E che hai precedentemente fatto un backup della NAND. Se intendi installare applicazioni homebrew, dovresti fare quanto segue:
+
+1. Premi (B) per annullare la creazione di un altro backup della NAND
+1. Tenendo premuto (R), premi (Start) per spegnere la console
+1. Copia il contenuto della cartella `/gm9/backups/` in una posizione sicura sul tuo computer
+1. Elimina la cartella `/gm9/backups/` dalla tua scheda SD
+1. Se hai spostato la cartella Nintendo 3DS al di fuori dalla scheda SD, copiala nuovamente sulla scheda SD
+    + Se non hai la cartella Nintendo 3DS, avvia il menu HOME con la scheda SD inserita per generarla automaticamente
+1. Premi (Start) e accendi la console continuando a tenerlo premuto. Verrà avviato GodMode9
+1. Premi il pulsante HOME per far apparire il menu delle azioni
+1. Seleziona "Scripts..."
+1. Seleziona "finalize"
+1. Segui le istruzioni dello script, rispondendo alle domande che ti vengono poste 
+
+{% endcapture %}
+<details>{{ compat | markdownify }}</details>
+
+{% capture compat %}
+<summary><u>Error #18: MSET9 detected</u></summary>
+
+You didn't remove MSET9 when prompted to. Follow [Section IV - Removing MSET9](installing-boot9strap-(mset9)#section-iv---removing-mset9), then re-run the script.
+
+{% endcapture %}
+<details>{{ compat | markdownify }}</details>
 
 ---
 
@@ -659,8 +826,8 @@ Questo potrebbe essere causato da vari motivi, ma principalmente perché la sche
 Puoi controllare se la tua SD non viene letta tenendo premuto SELECT all'avvio e controllando il testo giallo nella schermata inferiore; se dice "Booted from CTRNAND via B9S", la console si sta avviando dalla memoria interna e non dalla scheda SD.
 Se è questo il caso, prova a seguire i seguenti passaggi, indicati dal più semplice al più complesso:
 1. Spegni la tua console, rimuovi la scheda SD, reinseriscila, quindi accendi la tua console
-1. Spegni la console, rimuovi la scheda SD, inseriscila sul tuo PC, scarica l'ultima versione di [Luma3DS](https://github. om/LumaTeam/Luma3DS/releases/latest), estrai il file `boot.firm` dall'archivio `Luma3DS.zip` e posizionalo nella directory principale della tua scheda SD (sostituendo qualunque file preesistente)
-1. Spegni la console, rimuovi la scheda SD, inseriscila sul tuo PC e formatta la scheda SD secondo il sistema operativo del computer: [Windows](formatting-sd-(windows)), [macOS](formatting-sd-(mac)), [Linux](formatting-sd-(linux)) *(questo cancellerà i dati della tua scheda SD)*
+1. Spegni la console, rimuovi la scheda SD, inseriscila sul tuo computer, scarica l'ultima versione di [Luma3DS](https://github. om/LumaTeam/Luma3DS/releases/latest), estrai il file `boot.firm` dall'archivio `Luma3DS.zip` e posizionalo nella directory principale della tua scheda SD (sostituendo qualunque file preesistente)
+1. Spegni la console, rimuovi la scheda SD, inseriscila sul tuo computer e formatta la scheda SD secondo il sistema operativo del computer: [Windows](formatting-sd-(windows)), [macOS](formatting-sd-(mac)), [Linux](formatting-sd-(linux)) *(questo cancellerà i dati della tua scheda SD)*
 1. Verifica la presenza di eventuali errori nella tua scheda SD seguendo la guida corretta per il sistema operativo del tuo computer: [Windows](h2testw-(windows)), [Linux](f3-(linux)), [macOS](f3xswift-(mac)). Se la tua scheda SD è contrassegnata come difettosa, allora dovrai sostituirla
 1. Lo slot della tua scheda SD potrebbe essere rotto. Entra nel [canale Discord di Nintendo Homebrew](https://discord.gg/MWxPgEp) per chiedere assistenza
 {% endcapture %}

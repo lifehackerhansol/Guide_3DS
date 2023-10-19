@@ -104,6 +104,12 @@ sidebar_pages:
     title: Boot9strap telepítése (super-skaterhax)
     url: installing-boot9strap-(super-skaterhax)
   - 
+    title: Boot9strap telepítése (MSET9)
+    url: installing-boot9strap-(mset9)
+  - 
+    title: Boot9strap telepítése (petit-compwner)
+    url: installing-boot9strap-(petit-compwner)
+  - 
     title: eShop DSiWare dumpolása
     url: dumping-eshop-dsiware
   - 
@@ -128,7 +134,7 @@ sidebar_pages:
     title: Boot9strap telepítése (Hardmod)
     url: installing-boot9strap-(hardmod)
   - 
-    title: Boot9strap telepítése (ntrboot)
+    title: Boot9strap (ntrboot) telepítése
     url: installing-boot9strap-(ntrboot)
   - 
     title: Boot9strap telepítése (Soundhax)

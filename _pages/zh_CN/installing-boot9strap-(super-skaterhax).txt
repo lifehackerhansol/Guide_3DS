@@ -31,7 +31,7 @@ The instructions provided only apply to the New 3DS, New 3DS XL, and New 2DS XL.
 
 In this section, you will copy the files needed to trigger both super-skaterhax and the Homebrew Launcher.
 
-1. Power off your console
+1. 将主机关机
 1. 将你的 SD 卡插入到电脑
 1. 解压 Luma3DS `.zip` 里的 `boot.firm` 和 `boot.3dsx` 到你 SD 卡的根目录
     + 根目录指的是你点进 SD 卡看到的目录，你可以在这个目录下看到 Nintendo 3DS 文件夹，但请不要点进去
@@ -53,7 +53,7 @@ In this section, you will copy the files needed to trigger both super-skaterhax 
 
 In this section, you will visit the browser exploit webpage, which will launch the Homebrew Launcher.
 
-If you haven't already, make sure you have a working Internet connection set up on your console.
+在开始之前，请确保你的主机已经设置了一个可以连接互联网的无线网络。
 {: .notice--info}
 
 1. On the HOME Menu, press the Left and Right shoulder buttons at the same time to open the camera
@@ -74,11 +74,12 @@ If you haven't already, make sure you have a working Internet connection set up 
     + If any prompts appear, approve all of them
     + If your console freezes on a yellow screen, hold the POWER button until it turns off, then retry this section
     + If your console freezes on a red screen, hold the POWER button until it turns off, redo step 3 of Section II, then retry this section
-    + If you get another error, try again up to 5 times, and if it still doesn't work, [follow this troubleshooting guide](troubleshooting#homebrew-launcher-super-skaterhax)
+    + If you get another error, try again up to 5 times, and if it still doesn't work, [follow this troubleshooting guide](troubleshooting#installing-boot9strap-super-skaterhax)
 1. Your console will have booted into the Homebrew Launcher
 1. Launch nimdsphax from the list of homebrew
 1. 如果一切成功的话，你将自动进入 SafeB9SInstaller
-    + If your console freezes on a red screen, hold the POWER button until it turns off, redo step 3 of Section II, then retry this section
+    + If your console freezes on a red or green screen, hold the POWER button until it turns off, then retry this section
+    + This may take up to five attempts
 
 #### 第三步 – 安装 boot9strap
 

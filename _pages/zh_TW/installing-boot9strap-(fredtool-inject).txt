@@ -50,7 +50,6 @@ In this section, you will copy the files necessary to temporarily replace DS Con
 1. 於您的 SD 卡中，移動至 `Nintendo 3DS` -> `<ID0>` -> `<ID1>` -> `Nintendo DSiWare`
     + `<ID0>` is the 32-letter folder name that you copied in [Seedminer](seedminer)
     + `<ID1>` is a 32-letter folder inside of the `<ID0>`
-1. Delete `F00D43D5.bin` from your Nintendo DSiWare folder
 1. Copy the `42383841.bin`  file from the `hax` folder of the downloaded DSiWare archive (output_(name).zip) to the `Nintendo DSiWare` folder
     ![]({{ "/images/screenshots/bb3/dsiware-location-4.png" | absolute_url }}){: .notice--info}
 1. 解壓 Luma3DS `.zip` 內的 `boot.firm` 及 `boot.3dsx` 到 SD 卡的根目錄底下
@@ -71,25 +70,34 @@ In this section, you will copy the hacked DS Connection Settings DSiWare to inte
 1. Launch System Settings on your console
 1. Navigate to `Data Management` -> `DSiWare` -> `SD Card` ([image](/images/screenshots/bb3/dsiware-management.png))
 1. Select the "Haxxxxxxxxx!" title
-    + If you are unable to select the "Haxxxxxxxxx" title, [follow this troubleshooting guide](troubleshooting#installing-boot9strap-fredtool)
+    + If you are unable to select the "Haxxxxxxxxx" title, [follow this troubleshooting guide](troubleshooting#installing-boot9strap-fredtool-inject)
 1. 選擇『複製 (Copy)』並選擇『OK』
-1. 回到系統設定主選單
-1. Navigate to `Internet Settings` -> `Nintendo DS Connections`, then select "OK" ([image](/images/screenshots/fredtool/dsconnection.png))
-1. If the exploit was successful, your console will have loaded the JPN version of Flipnote Studio
-    + If your console does not load the JPN version of Flipnote Studio, [follow this troubleshooting guide](troubleshooting#installing-boot9strap-fredtool)
 
 #### Section IV - Flipnote Exploit
 
-{% include_relative include/install-boot9strap-b9stool.txt method="dsinternet" %}
+In this section, you will perform a series of very specific steps within Flipnote Studio that, when performed correctly, will launch b9sTool, the boot9strap (custom firmware) installer.
 
-#### Section V - Luma3DS Configuration
+If you would prefer a visual guide to this section, one is available [here](https://zoogie.github.io/web/flipnote_directions/).
+{: .notice--info}
+
+1. 回到系統設定主選單
+1. Navigate to `Internet Settings` -> `Nintendo DS Connections`, then select "OK" ([image](/images/screenshots/fredtool/dsconnection.png))
+1. If the exploit was successful, your console will have loaded the JPN version of Flipnote Studio
+    + If your console does not load the JPN version of Flipnote Studio, [follow this troubleshooting guide](troubleshooting#installing-boot9strap-fredtool-inject)
+{% include_relative include/exploit-flipnote.txt %}
+
+#### 第五節 — 安裝 boot9strap
+
+{% include_relative include/install-boot9strap-b9stool.txt %}
+
+#### Section VI - Luma3DS Configuration
 
 1. Press and hold (Select), and while holding (Select), power on your console
 {% include_relative include/configure-luma3ds.txt %}
 
 {% include_relative include/luma3ds-installed-note.txt %}
 
-#### Section VI - Restoring DS Connection Settings
+#### Section VII - Restoring DS Connection Settings
 
 In this section, you will restore DS Connection Settings to the way it was before it was temporarily replaced with Flipnote Studio in an earlier section.
 

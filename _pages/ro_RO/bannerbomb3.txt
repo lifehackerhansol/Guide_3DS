@@ -50,7 +50,7 @@ In this section, you will copy the files needed to trigger the BannerBomb3 explo
     + If you have multiple `<ID1>` folders, follow the instructions [here](troubleshooting#bannerbomb3)
     ![]({{ "/images/screenshots/bb3/dsiware-location-1.png" | absolute_url }}){: .notice--info}
 1. Create a folder named `Nintendo DSiWare` inside of the `<ID1>`
-    + If you already had the folder *and* there are any existing DSiWare backup files (`<8-character-id>.bin`) inside, copy them to your PC and remove them from your SD card
+    + If you already had the folder *and* there are any existing DSiWare backup files (`<8-character-id>.bin`) inside, copy them to your computer and remove them from your SD card
 1. Copy the `F00D43D5.bin` file from `BannerBomb3.zip` to the `Nintendo DSiWare` folder
 
 ![]({{ "/images/screenshots/bb3/dsiware-location-2.png" | absolute_url }})
@@ -60,6 +60,7 @@ In this section, you will copy the files needed to trigger the BannerBomb3 explo
 
 In this section, you will trigger the BannerBomb3 exploit using the DSiWare Management menu and use it to install the menuhax67 exploit.
 
+1. Reinsert your SD card into your console 
 1. Power on your console
 1. Launch System Settings on your console
 1. Navigate to `Data Management` -> `DSiWare` -> `SD Card` ([image](/images/screenshots/bb3/dsiware-management.png))
