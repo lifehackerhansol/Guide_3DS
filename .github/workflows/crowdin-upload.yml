@@ -1,0 +1,37 @@
+name: Upload source files to Crowdin
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - '_pages/en_US/**.txt'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      # This makes sure that the site actually builds before pushing to Crowdin
+      - name: Build site
+        run: npm run docs:build
+
+      - name: Push to Crowdin
+        uses: crowdin/github-action@v2
+        with:
+          upload_sources: true
+        env:
+          CROWDIN_TOKEN: ${{ secrets.CROWDIN_TOKEN }}
