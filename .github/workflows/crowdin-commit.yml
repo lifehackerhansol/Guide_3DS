@@ -24,13 +24,13 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Setup Crowdin CLI
+        run: |
+          npm i -g @crowdin/cli
+
       - name: Pull from Crowdin
-        uses: crowdin/github-action@v2
-        with:
-          upload_sources: false
-          download_translations: true
-        env:
-          CROWDIN_TOKEN: ${{ secrets.CROWDIN_TOKEN }}
+        run: |
+          CROWDIN_TOKEN=${{ secrets.CROWDIN_TOKEN }} crowdin download
 
       - name: Pull origin
         run: git pull origin master --ff-only # Pull origin in case a commit has been done while updating
