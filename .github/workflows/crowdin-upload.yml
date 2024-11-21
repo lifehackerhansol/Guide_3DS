@@ -4,7 +4,9 @@ on:
   push:
     branches: [ master ]
     paths:
-      - '_pages/en_US/**.txt'
+      - 'docs/**.md'
+      - 'docs/_include/**.md'
+      - 'docs/.vitepress/i18n/strings/en_US.json'
   workflow_dispatch:
 
 jobs:
