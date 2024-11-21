@@ -1,6 +1,7 @@
 # boot9strap 설치 (safecerthax)
 
 :::details 기술적 상세 정보 (선택 사항)
+For technical details on the exploit that you will be using on this page, see [here](https://github.com/MrNbaYoh/safecerthax).
 
 :::
 

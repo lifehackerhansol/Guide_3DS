@@ -65,7 +65,7 @@ ___
 
 ___
 
-### Configurando ntrboot (Único 3DS)
+### Flashing ntrboot (Único 3DS)
 
 Este método não requer nada além de seu 3DS original sem modificações e um cartão flashcart compatível. Este método usa o flashcart para executar o arquivo '.nds' do ntrboot flasher no seu 3DS. Isto significa que seu flashcart deve oferecer suporte a execução de arquivos '.nds' na versão atual do seu 3DS. Consulte a tabela de flashcart acima para obter mais informações.
 

@@ -95,7 +95,7 @@ Estas instruções devem ser seguidas **EXATAMENTE** como estão, então confira
 9. Toque em "Setup MSET9"
 10. Toque na foto correspondente ao seu modelo de console, e então no botão correspondente à versão atual do firmware
     - Se a injeção for bem-sucedida, todos os botões devem ficar acinzentados, exceto "Remove MSET9"
-11. Reinsira o cartão SD no seu console **sem pressionar nenhum botão ou tocar na tela**
+11. Reinsira o cartão SD no seu console **sem pressionar nenhum botão ou tocar a tela de toque**
 12. Se o exploit for bem-sucedido, você terá entrado no SafeB9SInstaller
     - If you get a red screen or the console gets stuck on a loading screen, follow the [troubleshooting guide](troubleshooting-mset9)
 

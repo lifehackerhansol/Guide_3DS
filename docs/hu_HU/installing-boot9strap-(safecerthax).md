@@ -1,6 +1,7 @@
 # Boot9strap telepítése (safecerthax)
 
 :::details Technikai részletek (opcionális)
+For technical details on the exploit that you will be using on this page, see [here](https://github.com/MrNbaYoh/safecerthax).
 
 :::
 

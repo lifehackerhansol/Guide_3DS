@@ -10,7 +10,7 @@ head:
 
 # Instalando boot9strap (superskaterhax)
 
-:::details Detalhes técnicos (opcional)
+:::details Detalhes Técnicos (opcional)
 
 Para detalhes técnicos sobre os exploits que você usará nesta página, consulte [aqui](https://github.com/zoogie/super-skaterhax).
 
@@ -109,7 +109,7 @@ Se você ainda não tem, certifique-se de que você tem uma conexão de Internet
     - Se o seu console congelar em uma tela vermelha ou verde, segure o botão POWER até que ele desligue, então tente esta seção novamente
     - Isso pode levar até cinco tentativas
 
-#### Seção III - Instalando o boot9strap
+#### Seção III - Instalando boot9strap
 
 Nesta seção, você instalará custom firmware no seu console.
 
@@ -131,6 +131,6 @@ Agora você pode restaurar as suas configurações de região de volta ao normal
 
 ::: tip
 
-Continue em [Finalizando a instalação](finalizing-setup)
+Continue para [Finalizando a Instalação](finalizing-setup)
 
 :::

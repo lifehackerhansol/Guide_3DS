@@ -137,7 +137,7 @@ Para identificar o TitleID de um arquivo `<TitleID>.gbavc.sav`, você pode obter
    - Ligue o seu console enquanto segura (Start) para abrir o menu de chainloader do Luma3DS
    - Inicie o GodMode9 pressionando (A)
    - Navegue para `[0:] SDCARD` -> `gm9`
-   - Pressione (Y) no arquivo `<TitleID>.gbavc.sav` que você deseja restaurar para copiá-lo
+   - Aperte (Y) no arquivo `<TitleID>.gbavc.sav` que você deseja restaurar para copiá-lo
    - Aperte (B) para retornar para o menu principal
    - Navegue para `[S:] SYSNAND VIRTUAL`
    - Pressione (A) no arquivo `agbsave.bin` para selecioná-lo

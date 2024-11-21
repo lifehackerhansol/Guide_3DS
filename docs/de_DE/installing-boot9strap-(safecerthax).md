@@ -1,6 +1,7 @@
 # boot9strap installieren (safecerthax)
 
 :::details Technical Details (optional)
+For technical details on the exploit that you will be using on this page, see [here](https://github.com/MrNbaYoh/safecerthax).
 
 :::
 
