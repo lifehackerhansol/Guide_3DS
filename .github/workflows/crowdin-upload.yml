@@ -2,7 +2,7 @@ name: Upload source files to Crowdin
 
 on:
   push:
-    branches: [ main ]
+    branches: [ master ]
     paths:
       - '_pages/en_US/**.txt'
   workflow_dispatch:
@@ -29,9 +29,9 @@ jobs:
       - name: Build site
         run: npm run docs:build
 
-      - name: Push to Crowdin
-        uses: crowdin/github-action@v2
-        with:
-          upload_sources: true
-        env:
-          CROWDIN_TOKEN: ${{ secrets.CROWDIN_TOKEN }}
+      #- name: Push to Crowdin
+      #  uses: crowdin/github-action@v2
+      #  with:
+      #    upload_sources: true
+      #  env:
+      #    CROWDIN_TOKEN: ${{ secrets.CROWDIN_TOKEN }}
